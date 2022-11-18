@@ -15,7 +15,7 @@ const Input = styled.input`
 
 `;
 
-const TextInput = ({control, name, defaultValue=''}) => {
+const TextInput = ({control, name, defaultValue='', className}) => {
 
     const {field} = useController({
         name: name, 
@@ -24,7 +24,7 @@ const TextInput = ({control, name, defaultValue=''}) => {
     });
 
     return (
-        <Input type="text" {...field} />
+        <Input type="text" className={className} {...field} />
     )
 }
 

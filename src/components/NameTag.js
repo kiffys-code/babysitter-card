@@ -8,18 +8,28 @@ const Container = styled.div`
     align-items: center;
 `
 
+const Name = styled(TextInput)`
+    font-size: 2.2rem !important;
+`
+
+const PlayAge = styled(TextInput)`
+    position: relative;
+    top: -1.5rem;
+    background: transparent;
+`
+
 const NameTag = ({form}) => {
 
     const {control} = form;
 
     return (
         <Container>
-            <TextInput 
+            <Name 
                 control={control}
                 name='name'
                 defaultValue='This Little'
             />
-            <TextInput 
+            <PlayAge 
                 control={control}
                 name='playAge'
                 defaultValue='Toddler'
