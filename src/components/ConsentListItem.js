@@ -1,59 +1,81 @@
-import { Controller } from "react-hook-form";
-import Select from "react-select";
 import styled from "styled-components";
 import TextInput from "./input/TextInput";
-import { LEVEL } from "./Level";
+import * as Consent from "./Consent"
+import { useState } from "react";
+import StyledModal from "./StyledModal";
+import ConsentInfo from "./ConsentInfo";
 
 const Container = styled.div`
     display: flex;
     align-items: center;
-    border: 1px solid #ddd;
-    padding: 1.2rem 1rem;
+    gap: 1rem;
 `
 
 const Ask = styled(TextInput)`
     font-size: 1.4rem;
     text-align: left;
 `
-const Answer = styled(Select)`
-    font-size: 1.6rem;
-    font-weight: bold;
-    min-width: 3rem;
-    text-align: center;
+const AnswerIcon = styled(Consent.Icon)`
+    height: 2rem;
 `
 
-const ConsentListItem = ({consent, index, prefix, control}) => {
+const ModalContentContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`
 
-    const fieldName = `${prefix}[${index}]`;
+const ConsentListItem = ({consent, prefix, control, edit, updateAnswer}) => {
+
+    const [showAnswerModal, setShowAnswerModal] = useState(false);
+
+    const onClickAnswer = (level) => {
+        if(edit) {
+            updateAnswer({...consent, answer: level});
+        }
+    }
+
+    const renderedAnswerModalContent = (() => {
+        if(edit) {
+            return Object.keys(Consent.Levels).map(key => {
+                const level = Consent.Levels[key];
+                return (
+                    <ConsentInfo 
+                        level={level}
+                        onClick={() => onClickAnswer(level)}
+                        edit={edit}
+                    />
+                );
+            })
+        } else {
+            return <ConsentInfo 
+                level={consent.answer}
+                edit={edit}
+            />
+        }
+    })();
 
     return (
         <Container>
-            <Controller 
-                control={control}
-                name={`${fieldName}.answer`}
-                defaultValue=''
-                render={({field}) =>
-                    <Answer 
-                        options={Object.keys(LEVEL).map(key => ({
-                            label: LEVEL[key].symbol,
-                            value: LEVEL[key]
-                        }))}
-                        inputId={field.name}
-                        isMulti={false}
-                        blurInputOnSelect
-                        {...field}
-                        value={{
-                            label: field.value.symbol,
-                            value: field.value
-                        }}
-                        onChange={it => field.onChange(it.value)}
-                    />
-            }/>
+            <AnswerIcon 
+                onClick={() => setShowAnswerModal(true)} 
+                level={consent.answer} 
+            />
             <Ask 
                 control={control}
-                name={`${fieldName}.ask`}
+                name={`${prefix}.ask`}
                 defaultValue='' 
+                edit={edit}
             />
+            <StyledModal
+                isOpen={showAnswerModal}
+                title={consent.ask}
+                closeModal={() => setShowAnswerModal(false)}
+            >
+                <ModalContentContainer>
+                    {renderedAnswerModalContent}
+                </ModalContentContainer>
+            </StyledModal>
         </Container>
     )
 }

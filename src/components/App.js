@@ -3,10 +3,10 @@ import NameTag from "./NameTag";
 import ConsentList from "./ConsentList";
 import { useForm } from "react-hook-form";
 import useFormPersist from 'react-hook-form-persist'
-import { LEVEL } from "./Level";
 import { useState } from "react";
 import EditToggle from "./EditToggle";
 import Footer from "./Footer";
+import { Levels } from "./Consent";
 
 const Container = styled.div`
     width: 100vw;
@@ -26,11 +26,15 @@ const App = () => {
         consents: [
             {
                 ask: 'Hugs',
-                answer: LEVEL.ask
+                answer: Levels.green
             },
             {
                 ask: 'Snuggles',
-                answer: LEVEL.green
+                answer: Levels.yellow
+            },
+            {
+                ask: 'Contact Play',
+                answer: Levels.red
             }
         ]
     }});

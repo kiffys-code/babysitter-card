@@ -4,18 +4,31 @@ import styled from "styled-components";
 const Input = styled.input`
     
     border: none;
-    padding: 1rem 2rem;
+    padding: 1rem 0rem;
     font-size: 1.2rem;
     text-align: center;
+    ${({edit}) => edit ? `
+        border: solid 1px #333;
+        border-radius: 10px;
+    ` : `
+        
+    `}
 
-    &:active, &:focus {
-        border: solid 1px black;
-        background: #ccc;
+    &:disabled {
+        background-color: inherit;
+        color: inherit;
     }
 
 `;
 
-const TextInput = ({control, name, defaultValue='', className}) => {
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
+
+const TextInput = ({control, name, label, defaultValue='', className, edit}) => {
 
     const {field} = useController({
         name: name, 
@@ -24,7 +37,10 @@ const TextInput = ({control, name, defaultValue='', className}) => {
     });
 
     return (
-        <Input type="text" className={className} {...field} />
+        <Container>
+            {edit && <label htmlFor={name}>{label}</label>}
+            <Input type="text" className={className} disabled={!edit} edit={edit} {...field} />
+        </Container>
     )
 }
 

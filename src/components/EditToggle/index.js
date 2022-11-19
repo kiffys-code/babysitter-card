@@ -21,7 +21,7 @@ const EditToggle = ({edit, setEdit}) => {
     return (
         <Button>
             <Icon 
-            src={edit ? require('./crayon.png'): require('./check.png')} alt='Edit' 
+            src={edit ? require('./check.png') : require('./crayon.png')} alt='Edit' 
             onClick={onClick}
         />
         </Button>

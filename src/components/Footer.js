@@ -24,12 +24,11 @@ const Footer = () => {
             <a href="https://github.com/kiffys-code/babysitter-card">
                 github.com/kiffys-code
             </a>
-            <a href="#" 
+            <span 
                 onClick={() => setShowAttr(true)} 
-                style={{textDecoration: 'none'}}
             >
                 Attributions
-            </a>
+            </span>
             <StyledModal 
                 isOpen={showAttr}
                 closeModal={closeModal}

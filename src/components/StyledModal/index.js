@@ -37,8 +37,8 @@ const StyledModal = (props) => {
             onEscapeKeydown={closeModal}
         >
             <Container>
-                <h1 class='title'>{title}</h1>
-                <span onClick={closeModal} class='close'>🗙</span>
+                <h1 className='title'>{title}</h1>
+                <span onClick={closeModal} className='close'>🗙</span>
             </Container>
             {children}
         </CustomModal>
