@@ -8,12 +8,15 @@ import ConsentInfo from "./ConsentInfo";
 const Container = styled.div`
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: ${({edit}) => edit ? '0' : '1rem'};
+    width: 100%;
 `
 
 const Ask = styled(TextInput)`
     font-size: 1.4rem;
     text-align: left;
+    width: ${({edit}) => edit ? '90%' : '100%'};
+    
 `
 const AnswerIcon = styled(Consent.Icon)`
     height: 2rem;
@@ -25,12 +28,17 @@ const ModalContentContainer = styled.div`
     gap: 1rem;
 `
 
-const ConsentListItem = ({consent, prefix, control, edit, updateAnswer}) => {
+const DeleteIcon = styled.img`
+    height: 2rem;
+`
+
+const ConsentListItem = ({consent, prefix, control, edit, updateAnswer, deleteConsent}) => {
 
     const [showAnswerModal, setShowAnswerModal] = useState(false);
 
     const onClickAnswer = (level) => {
         if(edit) {
+            console.log({consent})
             updateAnswer({...consent, answer: level});
         }
     }
@@ -56,17 +64,26 @@ const ConsentListItem = ({consent, prefix, control, edit, updateAnswer}) => {
     })();
 
     return (
-        <Container>
-            <AnswerIcon 
-                onClick={() => setShowAnswerModal(true)} 
-                level={consent.answer} 
-            />
-            <Ask 
-                control={control}
-                name={`${prefix}.ask`}
-                defaultValue='' 
-                edit={edit}
-            />
+        <>
+            <Container edit={edit}>
+                <AnswerIcon 
+                    onClick={() => setShowAnswerModal(true)} 
+                    level={consent.answer} 
+                />
+                <Ask 
+                    control={control}
+                    name={`${prefix}.ask`}
+                    defaultValue='' 
+                    edit={edit}
+                />
+                {edit &&
+                    <DeleteIcon 
+                        src={require('./trash-bin.png')}
+                        alt='Delete'
+                        onClick={() => deleteConsent()}
+                    />
+                }
+            </Container>
             <StyledModal
                 isOpen={showAnswerModal}
                 title={consent.ask}
@@ -76,7 +93,7 @@ const ConsentListItem = ({consent, prefix, control, edit, updateAnswer}) => {
                     {renderedAnswerModalContent}
                 </ModalContentContainer>
             </StyledModal>
-        </Container>
+        </>
     )
 }
 

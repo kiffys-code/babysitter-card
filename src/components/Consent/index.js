@@ -4,17 +4,20 @@ const Levels = {
     green: {
         value: 'Green',
         explanation: 'I am okay with this! (but can always opt out)',
-        image: require('./heart.png')
+        image: require('./heart.png'),
+        color: ''
     },
     yellow: {
         value: 'Yellow',
         explanation: 'Please ask first!',
-        image: require('./question.png')
+        image: require('./question.png'),
+        color: ''
     },
     red: {
         value: 'Red',
         explanation: 'This is NOT okay!',
-        image: require('./forbidden.png')
+        image: require('./forbidden.png'),
+        color: ''
     }
 };
 

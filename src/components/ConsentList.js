@@ -1,5 +1,6 @@
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
+import { Levels } from "./Consent";
 import ConsentListItem from "./ConsentListItem";
 
 const Container = styled.div`
@@ -10,6 +11,15 @@ const Container = styled.div`
         gap: 1rem;
     ` : `
     `}
+    width: 100%;
+`
+
+const NewConsentButton = styled.button`
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: #5cb3ed;
+    color: #fff;
 `
 
 const ConsentList = ({form, edit}) => {
@@ -29,13 +39,20 @@ const ConsentList = ({form, edit}) => {
             consent={item} 
             prefix={`consents[${index}]`}
             updateAnswer={(val) => update(index, val)}
-            delete={() => remove(index)}
+            deleteConsent={() => remove(index)}
         />
     );
 
     return (
         <Container edit={edit}>
             {renderedConsents}
+            {edit &&
+                <NewConsentButton
+                    onClick={() => append({ask: '', answer: Levels.yellow})}
+                >
+                    New Consent
+                </NewConsentButton>
+            }
         </Container>
     );
 }

@@ -18,12 +18,7 @@ const Footer = () => {
 
     return (
         <Container>
-            <div>
-                Copyright {new Date().getFullYear()}, Kiffy
-            </div>
-            <a href="https://github.com/kiffys-code/babysitter-card">
-                github.com/kiffys-code
-            </a>
+            
             <span 
                 onClick={() => setShowAttr(true)} 
             >
