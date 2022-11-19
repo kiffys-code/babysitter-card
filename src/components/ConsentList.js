@@ -10,8 +10,6 @@ const ConsentList = ({form}) => {
         keyName: '_id'
     });
 
-    console.log({fields})
-
     const renderedConsents = fields.map((item, index) => 
         <ConsentListItem control={control} consent={item} index={index} prefix='consents' key={item._id} />
     );

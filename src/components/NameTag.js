@@ -24,7 +24,7 @@ const NameTag = ({form}) => {
 
     return (
         <Container>
-            <Name 
+            <Name
                 control={control}
                 name='name'
                 defaultValue='This Little'

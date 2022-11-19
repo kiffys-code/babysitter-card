@@ -6,10 +6,17 @@ import useFormPersist from 'react-hook-form-persist'
 import { LEVEL } from "./Level";
 import { useState } from "react";
 import EditToggle from "./EditToggle";
+import Footer from "./Footer";
 
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
+`;
+
+const EditContainer = styled.div`
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
 `;
 
 const App = () => {
@@ -38,7 +45,10 @@ const App = () => {
         <Container>
             <NameTag {...{form, edit}} />
             <ConsentList {...{form, edit}} />
-            <EditToggle {...{edit, setEdit}} />
+            <EditContainer>
+                <EditToggle {...{edit, setEdit}} />
+            </EditContainer>
+            <Footer />
         </Container>
     );
 }
