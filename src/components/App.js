@@ -21,7 +21,11 @@ const EditContainer = styled.div`
 const App = () => {
 
     const [edit, setEdit] = useState(false);
-    const form = useForm();
+    const form = useForm({defaultValues:{
+        name: 'This Little',
+        playAge: 'Baby',
+        consents: []
+    }});
 
     useFormPersist("consentPreferences", {
         watch: form.watch, 

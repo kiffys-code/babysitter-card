@@ -10,7 +10,7 @@ const Input = styled.input`
         border: solid 1px #333;
         border-radius: 10px;
     ` : `
-        
+        padding: 0.5rem 0rem;
     `}
 
     &:disabled {

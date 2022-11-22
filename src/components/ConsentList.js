@@ -13,12 +13,28 @@ const Container = styled.div`
     width: 100%;
 `
 
+const ConsentsListContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    ${({edit}) => edit ? `
+        gap: 2rem;
+    ` : `
+    `}
+    width: 100%; 
+`
+
 const NewConsentButton = styled.button`
     font-size: 1.2rem;
     padding: 1rem 2rem;
     border-radius: 10px;
     background-color: #5cb3ed;
     color: #fff;
+`
+
+const NewConsentsMessage = styled.p`
+    text-align: center;
+    font-style: italic;
+    font-size: 1rem;
 `
 
 const DEFAULT_CONSENT = {
@@ -35,7 +51,7 @@ const ConsentList = ({form, edit}) => {
         keyName: '_id'
     });
 
-    const renderedConsents = fields.map((item, index) => 
+    const renderedConsents = fields && fields.length > 0 ? fields.map((item, index) => 
         <ConsentListItem 
             key={item._id} 
             control={control}
@@ -44,13 +60,11 @@ const ConsentList = ({form, edit}) => {
             consent={item} 
             deleteConsent={() => remove(index)}
         />
-    );
+    ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>
 
     return (
         <Container edit={edit}>
-            <div>
-                {renderedConsents}
-            </div>
+            {renderedConsents}
             {edit &&
                 <NewConsentButton
                     onClick={() => append(DEFAULT_CONSENT)}

@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Ask = styled(TextInput)`
     font-size: 1.4rem;
-    text-align: left;
+    text-align: left !important;
     width: ${({edit}) => edit ? '90%' : '100%'};
     
 `
