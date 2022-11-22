@@ -21,11 +21,7 @@ const EditContainer = styled.div`
 const App = () => {
 
     const [edit, setEdit] = useState(false);
-    const form = useForm({defaultValues:{
-        name: 'This Little',
-        playAge: 'Baby',
-        consents: []
-    }});
+    const form = useForm();
 
     useFormPersist("consentPreferences", {
         watch: form.watch, 
@@ -35,9 +31,12 @@ const App = () => {
 
     const formValues = form.watch();
 
+    // Force update when finished editing
     useEffect(() => {
         if(!edit) {
-            form.setValue('consents', [...formValues.consents])
+            if(formValues?.consents) {
+                form.setValue('consents', [...formValues.consents]);
+            }
         }
     }, [edit])
 
