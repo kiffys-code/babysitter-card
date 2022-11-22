@@ -4,6 +4,7 @@ import * as Consent from "./Consent"
 import { useState } from "react";
 import StyledModal from "./StyledModal";
 import ConsentInfo from "./ConsentInfo";
+import ModalSelect from "./input/ModalSelect";
 
 const Container = styled.div`
     display: flex;
@@ -32,33 +33,31 @@ const DeleteIcon = styled.img`
     height: 2rem;
 `
 
-const ConsentListItem = ({consent, prefix, control, edit, updateAnswer, deleteConsent}) => {
+const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
 
     const [showAnswerModal, setShowAnswerModal] = useState(false);
 
-    const onClickAnswer = (level) => {
+    const renderedAnswer = (() => {
         if(edit) {
-            console.log({consent})
-            updateAnswer({...consent, answer: level});
-        }
-    }
-
-    const renderedAnswerModalContent = (() => {
-        if(edit) {
-            return Object.keys(Consent.Levels).map(key => {
-                const level = Consent.Levels[key];
-                return (
-                    <ConsentInfo 
-                        level={level}
-                        onClick={() => onClickAnswer(level)}
-                        edit={edit}
-                    />
-                );
-            })
-        } else {
-            return <ConsentInfo 
-                level={consent.answer}
+            return <ModalSelect 
+                control={control}
+                name={`${name}.answer`}
+                label={consent.ask}
+                defaultValue={Consent.LEVELS.yellow}
+                options={Object.keys(Consent.LEVELS).map(key => ({
+                    label: <ConsentInfo 
+                                level={Consent.LEVELS[key]} 
+                                edit={edit} 
+                            />,
+                    value: key
+                }))}
                 edit={edit}
+            />
+        } else {
+
+            return <AnswerIcon 
+                onClick={() => setShowAnswerModal(true)} 
+                level={Consent.LEVELS[consent.answer]} 
             />
         }
     })();
@@ -66,13 +65,10 @@ const ConsentListItem = ({consent, prefix, control, edit, updateAnswer, deleteCo
     return (
         <>
             <Container edit={edit}>
-                <AnswerIcon 
-                    onClick={() => setShowAnswerModal(true)} 
-                    level={consent.answer} 
-                />
+                {renderedAnswer}
                 <Ask 
                     control={control}
-                    name={`${prefix}.ask`}
+                    name={`${name}.ask`}
                     defaultValue='' 
                     edit={edit}
                 />
@@ -90,7 +86,10 @@ const ConsentListItem = ({consent, prefix, control, edit, updateAnswer, deleteCo
                 closeModal={() => setShowAnswerModal(false)}
             >
                 <ModalContentContainer>
-                    {renderedAnswerModalContent}
+                    <ConsentInfo 
+                        level={Consent.LEVELS[consent.answer]}
+                        edit={edit}
+                    />
                 </ModalContentContainer>
             </StyledModal>
         </>

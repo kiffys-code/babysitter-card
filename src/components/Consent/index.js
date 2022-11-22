@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Levels = {
+const LEVELS = {
     green: {
         value: 'Green',
         explanation: 'I am okay with this! (but can always opt out)',
@@ -34,4 +34,4 @@ const Icon = ({level, className, onClick}) => {
     />
 }
 
-export {Levels, Icon};
+export {LEVELS, Icon};

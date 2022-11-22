@@ -31,12 +31,13 @@ const PlayAge = styled(TextInput)`
 
 const NameTag = ({form, edit}) => {
 
-    const {control} = form;
+    const {control, register} = form;
 
     return (
         <Container edit={edit}>
             <Name
                 control={control}
+                register={register}
                 name='name'
                 label='Name'
                 defaultValue='This Little'
@@ -44,6 +45,7 @@ const NameTag = ({form, edit}) => {
             />
             <PlayAge 
                 control={control}
+                register={register}
                 name='playAge'
                 label='Play Age'
                 defaultValue='Toddler'

@@ -3,10 +3,9 @@ import NameTag from "./NameTag";
 import ConsentList from "./ConsentList";
 import { useForm } from "react-hook-form";
 import useFormPersist from 'react-hook-form-persist'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditToggle from "./EditToggle";
 import Footer from "./Footer";
-import { Levels } from "./Consent";
 
 const Container = styled.div`
     width: 100vw;
@@ -22,28 +21,21 @@ const EditContainer = styled.div`
 const App = () => {
 
     const [edit, setEdit] = useState(false);
-    const form = useForm({defaultValues: {
-        consents: [
-            {
-                ask: 'Hugs',
-                answer: Levels.green
-            },
-            {
-                ask: 'Snuggles',
-                answer: Levels.yellow
-            },
-            {
-                ask: 'Contact Play',
-                answer: Levels.red
-            }
-        ]
-    }});
+    const form = useForm();
 
     useFormPersist("consentPreferences", {
         watch: form.watch, 
         setValue: form.setValue,
         storage: window.localStorage
     });
+
+    const formValues = form.watch();
+
+    useEffect(() => {
+        if(!edit) {
+            form.setValue('consents', [...formValues.consents])
+        }
+    }, [edit])
 
     return (
         <Container>

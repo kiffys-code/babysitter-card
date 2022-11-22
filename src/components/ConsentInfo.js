@@ -19,6 +19,13 @@ const Container = styled.div`
         font-size: 1.2rem;
         font-style: italic;
     }
+
+    ${({edit}) => edit ? `
+        border: 1px solid #ddd;
+        padding: 1rem 1.5rem;
+        border-radius: 10px;
+    ` : ``}
+
 `
 const ConsentInfo = ({level, onClick, edit}) => {
 
