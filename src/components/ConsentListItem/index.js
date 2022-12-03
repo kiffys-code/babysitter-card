@@ -10,7 +10,8 @@ import Button from "../common/Button";
 const Container = styled.div`
     display: flex;
     align-items: center;
-    gap: ${({edit}) => edit ? '0' : '1rem'};
+    justify-content: space-between;
+    gap: ${({edit}) => edit ? '0' : '0.5rem'};
     width: 100%;
 `
 
@@ -18,7 +19,6 @@ const Ask = styled(TextInput)`
     font-size: 1.4rem;
     text-align: left !important;
     width: ${({edit}) => edit ? '90%' : '100%'};
-    
 `
 const AnswerIcon = styled(Consent.Icon)`
     height: 2rem;

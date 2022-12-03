@@ -34,8 +34,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    height: 100vh;
-    width: 100vw;
+    background-color: #333;
   }
 
 `;

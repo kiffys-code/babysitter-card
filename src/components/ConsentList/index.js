@@ -11,7 +11,6 @@ const Container = styled.div`
         gap: 1rem;
     ` : `
     `}
-    width: 100%;
 `
 
 const NewConsentButton = styled(Button)`
