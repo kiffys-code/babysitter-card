@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Link from "./Link";
+import Link from "../common/Link";
 
 const Container = styled.div`
     display: flex;

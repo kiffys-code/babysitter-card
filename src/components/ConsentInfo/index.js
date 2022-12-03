@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { Icon } from "./Consent";
+import { Icon } from "../Consent";
 
 const Container = styled.div`
     display: flex;
     gap: 1rem;
     align-items: center;
+    width: 100%;
 
     & img {
         height: 3rem;
@@ -23,7 +24,7 @@ const Container = styled.div`
     ${({edit}) => edit ? `
         border: 1px solid #ddd;
         padding: 1rem 1.5rem;
-        border-radius: 10px;
+        border-radius: 5px;
     ` : ``}
 
 `

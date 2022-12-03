@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 import NameTag from "./NameTag";
 import ConsentList from "./ConsentList";
 import { useForm } from "react-hook-form";
@@ -40,12 +40,14 @@ const App = ({setCurrentTheme}) => {
                 form.setValue('consents', [...formValues.consents]);
             }
         }
+        // eslint-disable-next-line
     }, [edit])
 
     const themeWatch = form.watch('theme');
 
     useEffect(() => {
         setCurrentTheme(form.getValues('theme'));
+        // eslint-disable-next-line
     }, [themeWatch])
 
     return (

@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import TextInput from "./input/TextInput";
-import * as Consent from "./Consent"
+import TextInput from "../input/TextInput";
+import * as Consent from "../Consent"
 import { useState } from "react";
-import StyledModal from "./StyledModal";
-import ConsentInfo from "./ConsentInfo";
-import ModalSelect from "./input/ModalSelect";
-import Button from "./input/Button";
+import StyledModal from "../StyledModal";
+import ConsentInfo from "../ConsentInfo";
+import ModalSelect from "../input/ModalSelect";
+import Button from "../common/Button";
 
 const Container = styled.div`
     display: flex;
@@ -34,8 +34,6 @@ const DeleteIcon = styled.img`
     height: 2rem;
     width: 2rem;
     border-radius: 100%;
-    // border: 1px solid white;
-    // box-shadow: 1px 1px 2px black;
 `
 
 const DeleteButton = styled(Button)`
@@ -43,7 +41,6 @@ const DeleteButton = styled(Button)`
     width: 2rem;
     border-radius: 100%;
 `
-
 const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
 
     const [showAnswerModal, setShowAnswerModal] = useState(false);
@@ -65,7 +62,6 @@ const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
                 edit={edit}
             />
         } else {
-
             return <AnswerIcon 
                 onClick={() => setShowAnswerModal(true)} 
                 level={Consent.LEVELS[consent.answer]} 

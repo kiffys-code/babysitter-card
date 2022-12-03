@@ -3,6 +3,7 @@ import { useController } from "react-hook-form";
 import styled from "styled-components";
 import StyledModal from "../../StyledModal";
 import {LEVELS, Icon} from "../../Consent";
+import Button from '../../common/Button';
 
 const ModalContentContainer = styled.div`
     display: flex;
@@ -27,6 +28,13 @@ const AnswerButton = styled.button`
     }
 `
 
+const ModalAnswerButton = styled(Button)`
+    background-color: #555;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+`
+
 const ModalSelect = ({control, name, label, defaultValue, options, className, edit}) => {
     
     const [showAnswerModal, setShowAnswerModal] = useState(false);
@@ -40,13 +48,6 @@ const ModalSelect = ({control, name, label, defaultValue, options, className, ed
 
     return (
         <div>
-
-            {/* <AnswerButton 
-                onClick={() => setShowAnswerModal(true)}
-                level={LEVELS[field.value]}
-                >
-                    {field.value}
-            </AnswerButton> */}
             <AnswerButton onClick={() => setShowAnswerModal(true)}>
                 <Icon level={LEVELS[field.value]}>{field.value}</Icon>
             </AnswerButton>
@@ -57,12 +58,13 @@ const ModalSelect = ({control, name, label, defaultValue, options, className, ed
             >
                 <ModalContentContainer className={className}>
                     {options.map(it => 
-                        <button 
+                        <ModalAnswerButton 
+                            id='modal-answer-button'
                             key={it.value}
                             onClick={() => onOptionClick(it.value)}
                         >
                             {it.label}
-                        </button>
+                        </ModalAnswerButton>
                     )}
                 </ModalContentContainer>
             </StyledModal>

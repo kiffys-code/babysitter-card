@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TextInput from "./input/TextInput";
+import TextInput from "../input/TextInput";
 
 const Container = styled.div`
     display: flex;

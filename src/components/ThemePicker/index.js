@@ -1,6 +1,6 @@
 import { useController } from "react-hook-form";
 import styled from "styled-components";
-import Button from "../input/Button";
+import Button from "../common/Button";
 import themes, { defaultTheme } from "../themes";
 
 const Container = styled.div`

@@ -6,7 +6,9 @@ const StyledLink = styled.a`
 
 const Link = ({children, ...props}) => {
     return (
-        <StyledLink {...props} target="_blank">{children}</StyledLink>
+        <StyledLink {...props} target="_blank" rel="noopener noreferrer" >
+            {children}
+        </StyledLink>
     )
 }
 

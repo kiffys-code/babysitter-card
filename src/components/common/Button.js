@@ -9,8 +9,8 @@ const StyledButton = styled.button`
     box-shadow: 1px 1px 2px black;
 `
 
-const Button = ({children, ...props}) => {
-    return <StyledButton {...props}>
+const Button = ({children, className, ...props}) => {
+    return <StyledButton {...{className, ...props}}>
         {children}
     </StyledButton>
 }

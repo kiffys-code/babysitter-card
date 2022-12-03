@@ -1,7 +1,7 @@
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
-import ConsentListItem from "./ConsentListItem";
-import Button from "./input/Button";
+import ConsentListItem from "../ConsentListItem";
+import Button from "../common/Button";
 
 const Container = styled.div`
     display: flex;
@@ -12,16 +12,6 @@ const Container = styled.div`
     ` : `
     `}
     width: 100%;
-`
-
-const ConsentsListContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    ${({edit}) => edit ? `
-        gap: 2rem;
-    ` : `
-    `}
-    width: 100%; 
 `
 
 const NewConsentButton = styled(Button)`
