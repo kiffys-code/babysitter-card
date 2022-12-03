@@ -10,6 +10,11 @@ const GlobalStyles = createGlobalStyle`
     font-family: AyeshaDisplay;
     src: url(${require('./AyeshaDisplay-axnq5.ttf')});
   }
+  
+  @font-face {
+    font-family: OpenDyslexic;
+    src: url(${require('./OpenDyslexic-Regular.otf')});
+  }
 
   * {
     padding: 0;
@@ -17,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     color: #fff;
     text-shadow: black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px, black 0px 0px 1px;
-    font-family: "Comic Sans", cursive;
+    font-family: OpenDyslexic, Verdana, sans-serif;
   }
 
   a, a:visited {

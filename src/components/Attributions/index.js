@@ -22,6 +22,9 @@ const Attributions = () => {
             <Link href="https://www.fontspace.com/ayesha-display-font-f85785" title="AyeshaDisplay Font">
                 AyeshaDisplay font by Createivetacos - Fontspace
             </Link>
+            <Link href="https://opendyslexic.org/" title="OpenDyslexic Font">
+                OpenDyslexic font - OpenDyslexic
+            </Link>
             <Link href="https://www.flaticon.com/free-icons/crayon" title="crayon icons">
                 Crayon icons created by fjstudio - Flaticon
             </Link>
