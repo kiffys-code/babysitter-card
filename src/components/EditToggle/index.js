@@ -1,9 +1,14 @@
 import styled from "styled-components";
 
 const Button = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
     background-color: #5cb3ed;
     padding: 0.8rem;
+    height: 4rem;
+    width: 4rem;
     border-radius: 100%;
     box-shadow: 0px 2px 10px #333; 
 `

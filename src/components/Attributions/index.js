@@ -25,6 +25,9 @@ const Attributions = () => {
             <Link href="https://opendyslexic.org/" title="OpenDyslexic Font">
                 OpenDyslexic font - OpenDyslexic
             </Link>
+            <Link href="https://www.flaticon.com/free-icons/close" title="close icons">
+                Close icons created by ariefstudio - Flaticon
+            </Link>
             <Link href="https://www.flaticon.com/free-icons/crayon" title="crayon icons">
                 Crayon icons created by fjstudio - Flaticon
             </Link>

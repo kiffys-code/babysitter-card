@@ -21,15 +21,19 @@ const CustomModal = Modal.styled`
 
 const Container = styled.article`
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding-bottom: 1rem;
 
     & .title {
         font-size: 1.8rem;
         color: ${({theme}) => theme.text};
     }
-    &  .close {
-        color: ${({theme}) => theme.text};
-    }
+`
+
+const CloseIcon = styled.img`
+    width: 2.5rem;
+    height: 2.5rem;
 `
 
 const StyledModal = (props) => {
@@ -43,7 +47,7 @@ const StyledModal = (props) => {
         >
             <Container>
                 <h1 className='title'>{title}</h1>
-                <span onClick={closeModal} className='close'>🗙</span>
+                <CloseIcon onClick={closeModal} className='close' src={require('./close.png')} alt='Close' />
             </Container>
             {children}
         </CustomModal>
