@@ -9,9 +9,10 @@ import Footer from "./Footer";
 import ThemePicker from "./ThemePicker";
 
 const Container = styled.div`
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: ${({theme}) => theme.background};
+    scroll: auto;
 `;
 
 const EditContainer = styled.div`

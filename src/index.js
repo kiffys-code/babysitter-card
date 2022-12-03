@@ -33,6 +33,11 @@ const GlobalStyles = createGlobalStyle`
     font-weight: normal;
   }
 
+  body {
+    height: 100vh;
+    width: 100vw;
+  }
+
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
