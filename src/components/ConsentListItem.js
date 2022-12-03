@@ -5,6 +5,7 @@ import { useState } from "react";
 import StyledModal from "./StyledModal";
 import ConsentInfo from "./ConsentInfo";
 import ModalSelect from "./input/ModalSelect";
+import Button from "./input/Button";
 
 const Container = styled.div`
     display: flex;
@@ -31,6 +32,16 @@ const ModalContentContainer = styled.div`
 
 const DeleteIcon = styled.img`
     height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    // border: 1px solid white;
+    // box-shadow: 1px 1px 2px black;
+`
+
+const DeleteButton = styled(Button)`
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
 `
 
 const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
@@ -62,6 +73,15 @@ const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
         }
     })();
 
+    const deleteButton = edit ?
+        <DeleteButton onClick={() => deleteConsent()} >
+            <DeleteIcon 
+                src={require('./trash-bin.png')}
+                alt='Delete'
+            />
+        </DeleteButton>
+        : null;
+
     return (
         <>
             <Container edit={edit}>
@@ -72,13 +92,7 @@ const ConsentListItem = ({control, name, edit, consent, deleteConsent}) => {
                     defaultValue='' 
                     edit={edit}
                 />
-                {edit &&
-                    <DeleteIcon 
-                        src={require('./trash-bin.png')}
-                        alt='Delete'
-                        onClick={() => deleteConsent()}
-                    />
-                }
+                {deleteButton}
             </Container>
             <StyledModal
                 isOpen={showAnswerModal}

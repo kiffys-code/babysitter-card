@@ -13,7 +13,8 @@ const Container = styled.div`
 `
 
 const Name = styled(TextInput)`
-    font-size: 2.2rem !important;
+    font-family: AyeshaDisplay, "Comic Sans", cursive;
+    font-size: 2.6rem;
     ${({edit}) => edit ? `
         width: 75vw;
     ` : ``}
@@ -21,6 +22,8 @@ const Name = styled(TextInput)`
 `
 
 const PlayAge = styled(TextInput)`
+    font-family: AyeshaDisplay, "Comic Sans", cursive;
+    font-size: 2rem;
     ${({edit}) => edit ? `
         width: 75vw;
     ` : `

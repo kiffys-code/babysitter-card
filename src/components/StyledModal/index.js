@@ -8,6 +8,7 @@ const CustomModal = Modal.styled`
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    background-color: ${({theme}) => theme.background};
     
     & .close {
         margin-left: auto;
@@ -24,6 +25,10 @@ const Container = styled.article`
 
     & .title {
         font-size: 1.8rem;
+        color: ${({theme}) => theme.text};
+    }
+    &  .close {
+        color: ${({theme}) => theme.text};
     }
 `
 

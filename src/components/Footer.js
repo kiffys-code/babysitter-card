@@ -7,7 +7,10 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    color: #888;
+
+    & span {
+        color: ${({theme}) => theme.text};
+    }
 `
 
 const Footer = () => {

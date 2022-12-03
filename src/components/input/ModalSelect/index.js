@@ -10,8 +10,21 @@ const ModalContentContainer = styled.div`
     gap: 1rem;
 `
 
-const AnswerButton = styled(Icon)`
-    height: 2em;
+const AnswerButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;
+    width: 3em;
+    padding: 0.5rem;
+    border-radius: 100%;
+    border: 1px solid white;
+    box-shadow: 1px 1px 2px black;
+
+    & img {
+        height: 2em;
+        width: 2em;
+    }
 `
 
 const ModalSelect = ({control, name, label, defaultValue, options, className, edit}) => {
@@ -28,11 +41,14 @@ const ModalSelect = ({control, name, label, defaultValue, options, className, ed
     return (
         <div>
 
-            <AnswerButton 
+            {/* <AnswerButton 
                 onClick={() => setShowAnswerModal(true)}
                 level={LEVELS[field.value]}
                 >
                     {field.value}
+            </AnswerButton> */}
+            <AnswerButton onClick={() => setShowAnswerModal(true)}>
+                <Icon level={LEVELS[field.value]}>{field.value}</Icon>
             </AnswerButton>
             <StyledModal
                 isOpen={showAnswerModal}

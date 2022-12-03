@@ -1,6 +1,7 @@
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
 import ConsentListItem from "./ConsentListItem";
+import Button from "./input/Button";
 
 const Container = styled.div`
     display: flex;
@@ -23,7 +24,7 @@ const ConsentsListContainer = styled.div`
     width: 100%; 
 `
 
-const NewConsentButton = styled.button`
+const NewConsentButton = styled(Button)`
     font-size: 1.2rem;
     padding: 1rem 2rem;
     border-radius: 10px;
@@ -48,7 +49,7 @@ const ConsentList = ({form, edit}) => {
     const {fields, remove, append} = useFieldArray({
         name: 'consents',
         control: control,
-        keyName: '_id'
+        keyName: '_id',
     });
 
     const renderedConsents = fields && fields.length > 0 ? fields.map((item, index) => 
@@ -60,7 +61,7 @@ const ConsentList = ({form, edit}) => {
             consent={item} 
             deleteConsent={() => remove(index)}
         />
-    ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>
+    ) : ( !edit ? <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage> : null)
 
     return (
         <Container edit={edit}>

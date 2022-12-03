@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import NameTag from "./NameTag";
 import ConsentList from "./ConsentList";
 import { useForm } from "react-hook-form";
@@ -6,10 +6,12 @@ import useFormPersist from 'react-hook-form-persist'
 import { useEffect, useState } from "react";
 import EditToggle from "./EditToggle";
 import Footer from "./Footer";
+import ThemePicker from "./ThemePicker";
 
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
+    background-color: ${({theme}) => theme.background};
 `;
 
 const EditContainer = styled.div`
@@ -18,7 +20,7 @@ const EditContainer = styled.div`
     left: 0.5rem;
 `;
 
-const App = () => {
+const App = ({setCurrentTheme}) => {
 
     const [edit, setEdit] = useState(false);
     const form = useForm();
@@ -40,9 +42,16 @@ const App = () => {
         }
     }, [edit])
 
+    const themeWatch = form.watch('theme');
+
+    useEffect(() => {
+        setCurrentTheme(form.getValues('theme'));
+    }, [themeWatch])
+
     return (
-        <Container>
+        <Container id='app' >
             <NameTag {...{form, edit}} />
+            <ThemePicker {...{form, edit}} />
             <ConsentList {...{form, edit}} />
             <EditContainer>
                 <EditToggle {...{edit, setEdit}} />
