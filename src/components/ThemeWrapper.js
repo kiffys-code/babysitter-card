@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
-import App from "./App"
-import themes from "./themes"
+import App from "components/App"
+import themes from "config/themes"
 
 const defaultValues = {
     background: '#333'

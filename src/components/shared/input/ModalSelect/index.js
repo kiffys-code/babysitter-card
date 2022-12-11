@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useController } from "react-hook-form";
 import styled from "styled-components";
-import StyledModal from "../../StyledModal";
-import {LEVELS, Icon} from "../../Consent";
-import Button from '../../common/Button';
+import StyledModal from "components/StyledModal";
+import {LEVELS, Icon} from "components/Consent";
+import Button from 'components/shared/Button';
 
 const ModalContentContainer = styled.div`
     display: flex;

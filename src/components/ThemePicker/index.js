@@ -1,7 +1,7 @@
 import { useController } from "react-hook-form";
 import styled from "styled-components";
-import Button from "../common/Button";
-import themes, { defaultTheme } from "../themes";
+import Button from "components/shared/Button";
+import themes, { defaultTheme } from "config/themes";
 
 const Container = styled.div`
     display: flex;

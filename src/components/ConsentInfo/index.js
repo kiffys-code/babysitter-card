@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon } from "../Consent";
+import { Icon } from "components/Consent";
 
 const Container = styled.div`
     display: flex;

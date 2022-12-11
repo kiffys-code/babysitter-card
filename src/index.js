@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createGlobalStyle } from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
-import ThemeWrapper from './components/ThemeWrapper';
+import ThemeWrapper from 'components/ThemeWrapper';
 
 const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: AyeshaDisplay;
-    src: url(${require('./AyeshaDisplay-axnq5.ttf')});
+    src: url(${require('assets/AyeshaDisplay-axnq5.ttf')});
   }
   
   @font-face {
     font-family: OpenDyslexic;
-    src: url(${require('./OpenDyslexic-Regular.otf')});
+    src: url(${require('assets/OpenDyslexic-Regular.otf')});
   }
 
   * {

@@ -1,7 +1,7 @@
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
-import ConsentListItem from "../ConsentListItem";
-import Button from "../common/Button";
+import ConsentListItem from "components/ConsentListItem";
+import Button from "components/shared/Button";
 
 const Container = styled.div`
     display: flex;

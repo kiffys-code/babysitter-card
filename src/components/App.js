@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import NameTag from "./NameTag";
-import ConsentList from "./ConsentList";
+import NameTag from "components/NameTag";
+import ConsentList from "components/ConsentList";
 import { useForm } from "react-hook-form";
 import useFormPersist from 'react-hook-form-persist'
 import { useEffect, useState } from "react";
-import EditToggle from "./EditToggle";
-import Footer from "./Footer";
-import ThemePicker from "./ThemePicker";
+import EditToggle from "components/EditToggle";
+import Footer from "components/Footer";
+import ThemePicker from "components/ThemePicker";
 
 const Container = styled.div`
     display: flex;

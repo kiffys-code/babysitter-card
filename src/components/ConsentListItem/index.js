@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import TextInput from "../input/TextInput";
-import * as Consent from "../Consent"
+import TextInput from "components/shared/input/TextInput";
+import * as Consent from "components/Consent"
 import { useState } from "react";
-import StyledModal from "../StyledModal";
-import ConsentInfo from "../ConsentInfo";
-import ModalSelect from "../input/ModalSelect";
-import Button from "../common/Button";
+import StyledModal from "components/StyledModal";
+import ConsentInfo from "components/ConsentInfo";
+import ModalSelect from "components/shared/input/ModalSelect";
+import Button from "components/shared/Button";
 
 const Container = styled.div`
     display: flex;
