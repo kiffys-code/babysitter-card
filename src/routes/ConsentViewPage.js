@@ -14,7 +14,7 @@ const EditContainer = styled.div`
     left: 0.5rem;
 `;
 
-const ConsentViewPage = ({}) => {
+const ConsentViewPage = () => {
 
     const {data} = useLoaderData();
     const {name, playAge, consents} = data;

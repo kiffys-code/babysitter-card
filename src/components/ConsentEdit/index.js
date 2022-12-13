@@ -1,7 +1,9 @@
 import EditToggle from "components/EditToggle";
-import Button from "components/shared/Button";
 import TextInput from "components/shared/input/TextInput";
 import ThemePicker from "components/ThemePicker";
+import { ThemeContext } from "config/context";
+import { useEffect } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import ConsentListEdit from "./ConsentListEdit";
 
@@ -17,7 +19,15 @@ const EditContainer = styled.div`
 
 const ConsentEdit = ({form}) => {
 
-    const {control, register} = form;
+    const {control, register, watch} = form;
+    const {setThemeColor} = useContext(ThemeContext);
+
+    const themeColor = watch('theme');
+
+    useEffect(() => {
+        setThemeColor(themeColor);
+    }, [themeColor, setThemeColor]);
+
 
     return (
         <Container>

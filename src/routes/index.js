@@ -1,19 +1,19 @@
-import App from "./Root";
+import Root from "./Root";
 import ConsentChangePage from "./ConsentChangePage";
 import ConsentViewPage from "./ConsentViewPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
-import { STORAGE_KEY } from "config/storage";
+import { getConsentPreferences } from "config/storage";
 
 const loader = async () => {
-    const data = await JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    const data = getConsentPreferences() || {};
     return {data};
 }
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <App />,
+        element: <Root />,
         errorElement: <ErrorPage />,
         children: [
             {
@@ -30,6 +30,6 @@ const router = createBrowserRouter([
     }
 ]);
 
-const Routes = () => <RouterProvider router={router} />;
+const AppRoutes = () => <RouterProvider router={router} />;
 
-export default Routes;
+export default AppRoutes;

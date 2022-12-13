@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import TextInput from "components/shared/input/TextInput";
 import * as Consent from "components/Consent"
-import { useState } from "react";
-import StyledModal from "components/StyledModal";
 import ConsentInfo from "components/ConsentInfo";
 import ModalSelect from "components/shared/input/ModalSelect";
 import Button from "components/shared/Button";
@@ -19,15 +17,6 @@ const Ask = styled(TextInput)`
     text-align: left !important;
     width: 90%;
 `
-const AnswerIcon = styled(Consent.Icon)`
-    height: 2rem;
-`
-
-const ModalContentContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-`
 
 const DeleteIcon = styled.img`
     height: 2rem;
@@ -41,8 +30,6 @@ const DeleteButton = styled(Button)`
     border-radius: 100%;
 `
 const ConsentListItemEdit = ({control, name, consent, deleteConsent}) => {
-
-    const [showAnswerModal, setShowAnswerModal] = useState(false);
 
     return (
         <>
@@ -71,17 +58,6 @@ const ConsentListItemEdit = ({control, name, consent, deleteConsent}) => {
                     />
                 </DeleteButton>
             </Container>
-            {/* <StyledModal
-                isOpen={showAnswerModal}
-                title={consent.ask}
-                closeModal={() => setShowAnswerModal(false)}
-            >
-                <ModalContentContainer>
-                    <ConsentInfo 
-                        level={Consent.LEVELS[consent.answer]}
-                    />
-                </ModalContentContainer>
-            </StyledModal> */}
         </>
     )
 }

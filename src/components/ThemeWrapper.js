@@ -1,7 +1,8 @@
-import { Children, useState } from "react"
+import { useState } from "react"
 import { ThemeProvider } from "styled-components"
-import App from "routes/Root"
 import themes from "config/themes"
+import { ThemeContext } from "config/context"
+import { getConsentPreferences } from "config/storage"
 
 const defaultValues = {
     background: '#333'
@@ -17,13 +18,15 @@ const chosenTheme = (name) => {
 
 const ThemeWrapper = ({children}) => {
     
-    const [currentTheme, setCurrentTheme] = useState('purple');
+    const storedThemeColor = getConsentPreferences().theme;
+    const [themeColor, setThemeColor] = useState(storedThemeColor || 'orange');
     
     return (
-        <ThemeProvider theme={chosenTheme(currentTheme)}>
-            {/* <App {...{setCurrentTheme}}/> */}
-            {children}
-        </ThemeProvider>
+        <ThemeContext.Provider value={{themeColor, setThemeColor}}>
+            <ThemeProvider theme={chosenTheme(themeColor)}>
+                {children}
+            </ThemeProvider>
+        </ThemeContext.Provider>
     )
 }
 

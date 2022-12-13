@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import ConsentListItem from "components/ConsentListItem";
-import Button from "components/shared/Button";
 
 const Container = styled.div`
     display: flex;
@@ -18,7 +17,8 @@ const ConsentList = ({consents}) => {
 
     const renderedConsents = consents && consents.length > 0 ? consents.map((item, index) => 
         <ConsentListItem 
-            consent={item} 
+            consent={item}
+            key={index}
         />
     ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>;
 

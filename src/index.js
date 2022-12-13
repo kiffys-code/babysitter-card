@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createGlobalStyle } from 'styled-components';
 import { ModalProvider } from 'styled-react-modal';
 import ThemeWrapper from 'components/ThemeWrapper';
-import Routes from 'routes';
+import AppRoutes from 'routes';
 
 const GlobalStyles = createGlobalStyle`
 
@@ -46,7 +46,7 @@ root.render(
     <GlobalStyles />
     <ModalProvider>
       <ThemeWrapper>
-        <Routes />
+        <AppRoutes />
       </ThemeWrapper>
     </ModalProvider>
   </React.StrictMode>
