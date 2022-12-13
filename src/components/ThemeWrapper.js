@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { Children, useState } from "react"
 import { ThemeProvider } from "styled-components"
-import App from "components/App"
+import App from "routes/Root"
 import themes from "config/themes"
 
 const defaultValues = {
@@ -15,13 +15,14 @@ const chosenTheme = (name) => {
     }
 }
 
-const ThemeWrapper = () => {
+const ThemeWrapper = ({children}) => {
     
-    const [currentTheme, setCurrentTheme] = useState('blue');
+    const [currentTheme, setCurrentTheme] = useState('purple');
     
     return (
         <ThemeProvider theme={chosenTheme(currentTheme)}>
-            <App {...{setCurrentTheme}}/>
+            {/* <App {...{setCurrentTheme}}/> */}
+            {children}
         </ThemeProvider>
     )
 }

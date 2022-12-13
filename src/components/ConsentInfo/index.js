@@ -21,17 +21,11 @@ const Container = styled.div`
         font-style: italic;
     }
 
-    ${({edit}) => edit ? `
-        border: 1px solid #ddd;
-        padding: 1rem 1.5rem;
-        border-radius: 5px;
-    ` : ``}
-
 `
-const ConsentInfo = ({level, onClick, edit}) => {
+const ConsentInfo = ({level, onClick}) => {
 
     return (
-        <Container onClick={onClick} edit={edit} >
+        <Container onClick={onClick} >
             <Icon level={level}/>
             <div>
                 <h2 className="value">{level.value}</h2>

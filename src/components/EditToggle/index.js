@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Button = styled.button`
@@ -17,19 +18,16 @@ const Icon = styled.img`
     filter: saturate(0) brightness(100);
 `
 
-const EditToggle = ({edit, setEdit}) => {
-
-    const onClick = () => {
-        setEdit(!edit);
-    }
+const EditToggle = ({to, edit}) => {
 
     return (
-        <Button>
-            <Icon 
-            src={edit ? require('./check.png') : require('./crayon.png')} alt='Edit' 
-            onClick={onClick}
-        />
-        </Button>
+        <Link to={to} >
+            <Button>
+                <Icon 
+                src={edit ? require('./check.png') : require('./crayon.png')} alt='Edit' 
+                />
+            </Button>
+        </Link>
     )
 }
 

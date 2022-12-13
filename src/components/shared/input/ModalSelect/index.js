@@ -35,7 +35,7 @@ const ModalAnswerButton = styled(Button)`
     box-shadow: none;
 `
 
-const ModalSelect = ({control, name, label, defaultValue, options, className, edit}) => {
+const ModalSelect = ({control, name, label, defaultValue, options, className}) => {
     
     const [showAnswerModal, setShowAnswerModal] = useState(false);
 

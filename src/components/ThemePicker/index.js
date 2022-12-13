@@ -40,7 +40,7 @@ const ColorButton = styled(Button)`
     border-radius: 100%;
 `;
 
-const ThemePicker = ({form, edit}) => {
+const ThemePicker = ({form}) => {
 
     const {control} = form;
     const {field} = useController({
@@ -54,7 +54,7 @@ const ThemePicker = ({form, edit}) => {
     }
 
     const renderedOptions = Object.keys(themes).map(name => 
-        <ColorButtonContainer>
+        <ColorButtonContainer key={name}>
             <ColorButtonLabel>{name}</ColorButtonLabel>
             <ColorButton 
                 theme={themes[name]}
@@ -63,14 +63,14 @@ const ThemePicker = ({form, edit}) => {
         </ColorButtonContainer>
     );
 
-    return edit ? 
+    return (
         <Container>
             <Label>Color Theme</Label>
             <ColorButtonsContainer>
                 {renderedOptions}
             </ColorButtonsContainer>
         </Container>
-    : null;
+    );
 }
 
 export default ThemePicker;
