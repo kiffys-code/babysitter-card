@@ -9,6 +9,7 @@ const Container = styled.div`
 const Name = styled.h1`
     font-family: AyeshaDisplay, "Comic Sans", cursive;
     font-size: 2.6rem;
+    color: ${({theme}) => theme.text};
 `
 
 const PlayAge = styled.h2`
@@ -16,6 +17,7 @@ const PlayAge = styled.h2`
     font-size: 2rem;
     background: transparent;
     padding: 0;
+    color: ${({theme}) => theme.text};
 `
 
 const NameTag = ({name, playAge}) => {
