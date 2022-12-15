@@ -15,7 +15,8 @@ const About = () => {
     return (
         <Container>
             <p>Babysitter Card is an 18+ communication tool that can convey preferences between consenting adults in an ABDL scene.</p>
-            <p>However this app should <i>never</i> imply consent where it hasn't been already communicated. Like any tool, use at your own discretion.</p>
+            <p>The best way you can use this app is to review boundaries together before enacting a scene; it should <i>never</i> imply consent automatically, and of course parties are welcome to renegotiate a scene at any point.</p> 
+            <p>Like any tool, use at your own discretion and of course...</p>
             <p className="centered">❤️ Play safe! ❤️</p>
         </Container>
     )
