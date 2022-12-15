@@ -1,6 +1,6 @@
 import EditToggle from "components/EditToggle";
 import TextInput from "components/shared/input/TextInput";
-import ThemePicker from "components/ThemePicker";
+import ThemePicker from "components/shared/input/ThemePicker";
 import { ThemeContext } from "config/context";
 import { useEffect } from "react";
 import { useContext } from "react";
