@@ -9,17 +9,10 @@ const CustomModal = Modal.styled`
     display: flex;
     flex-direction: column;
     background-color: ${({theme}) => theme.background};
-    
-    & .close {
-        margin-left: auto;
-        position: relative;
-        top: -1rem;
-        right: -1rem;
-        padding: 0.5rem;
-    }
+    max-height: 80vh;
 `
 
-const Container = styled.article`
+const HeaderContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,6 +21,14 @@ const Container = styled.article`
     & .title {
         font-size: 1.8rem;
         color: ${({theme}) => theme.text};
+    }
+
+    & .close {
+        margin-left: auto;
+        position: relative;
+        top: -1rem;
+        right: -1rem;
+        padding: 0.5rem;
     }
 `
 
@@ -44,11 +45,12 @@ const StyledModal = (props) => {
         <CustomModal {...props} 
             onBackgroundClick={closeModal}
             onEscapeKeydown={closeModal}
+            id='custom-modal'
         >
-            <Container>
+            <HeaderContainer id='custom-modal-header'>
                 <h1 className='title'>{title}</h1>
                 <CloseIcon onClick={closeModal} className='close' src={require('./close.png')} alt='Close' />
-            </Container>
+            </HeaderContainer>
             {children}
         </CustomModal>
     )
