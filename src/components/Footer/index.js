@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Attributions from "components/Attributions";
 import StyledModal from "components/StyledModal";
+import About from "components/About";
 
 const Container = styled.div`
     display: flex;
@@ -9,7 +10,7 @@ const Container = styled.div`
     justify-content: space-evenly;
     filter: brightness(0.8);
 
-    & span {
+    & * {
         color: ${({theme}) => theme.text};
     }
 `
@@ -17,8 +18,7 @@ const Container = styled.div`
 const Footer = () => {
 
     const [showAttr, setShowAttr] = useState(false);
-
-    const closeModal = () => setShowAttr(false);
+    const [showAbout, setShowAbout] = useState(false);
 
     return (
         <Container>
@@ -28,15 +28,25 @@ const Footer = () => {
             >
                 Attributions
             </span>
-            <span>
-                18+ Only
+            <span><i>18+ Only</i></span>
+            <span 
+                onClick={() => setShowAbout(true)} 
+            >
+                About
             </span>
             <StyledModal 
                 isOpen={showAttr}
-                closeModal={closeModal}
+                closeModal={() => setShowAttr(false)}
                 title="Attributions"
             >
                 <Attributions />
+            </StyledModal>
+            <StyledModal
+                isOpen={showAbout}
+                closeModal={() => setShowAbout(false)}
+                title="What Is This?"
+            >
+                <About />
             </StyledModal>
         </Container>
     )
