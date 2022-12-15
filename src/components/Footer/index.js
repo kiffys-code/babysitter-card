@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Attributions from "../Attributions";
-import StyledModal from "../StyledModal";
+import Attributions from "components/Attributions";
+import StyledModal from "components/StyledModal";
 
 const Container = styled.div`
     display: flex;

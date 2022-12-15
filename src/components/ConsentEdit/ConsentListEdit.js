@@ -1,16 +1,13 @@
 import { useFieldArray } from "react-hook-form";
 import styled from "styled-components";
-import ConsentListItem from "../ConsentListItem";
-import Button from "../common/Button";
+import Button from "components/shared/Button";
+import ConsentListItemEdit from "./ConsentListItemEdit";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     padding: 1rem 0.5rem;
-    ${({edit}) => edit ? `
-        gap: 1rem;
-    ` : `
-    `}
+    gap: 1rem;
 `
 
 const NewConsentButton = styled(Button)`
@@ -32,7 +29,7 @@ const DEFAULT_CONSENT = {
     answer: 'yellow'
 }
 
-const ConsentList = ({form, edit}) => {
+const ConsentListEdit = ({form}) => {
 
     const {control} = form;
     const {fields, remove, append} = useFieldArray({
@@ -42,28 +39,25 @@ const ConsentList = ({form, edit}) => {
     });
 
     const renderedConsents = fields && fields.length > 0 ? fields.map((item, index) => 
-        <ConsentListItem 
+        <ConsentListItemEdit
             key={item._id} 
             control={control}
             name={`consents[${index}]`}
-            edit={edit} 
             consent={item} 
             deleteConsent={() => remove(index)}
         />
-    ) : ( !edit ? <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage> : null)
+    ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>
 
     return (
-        <Container edit={edit}>
+        <Container>
             {renderedConsents}
-            {edit &&
-                <NewConsentButton
-                    onClick={() => append(DEFAULT_CONSENT)}
-                >
-                    New Consent
-                </NewConsentButton>
-            }
+            <NewConsentButton
+                onClick={() => append(DEFAULT_CONSENT)}
+            >
+                New Consent
+            </NewConsentButton>
         </Container>
     );
 }
 
-export default ConsentList;
+export default ConsentListEdit;

@@ -1,7 +1,7 @@
 import { useController } from "react-hook-form";
 import { Container, Input } from "./styled";
 
-const TextInput = ({control, name, label, defaultValue='', className, edit}) => {
+const TextInput = ({control, name, label, defaultValue='', className}) => {
 
     const {field} = useController({
         name: name, 
@@ -11,11 +11,9 @@ const TextInput = ({control, name, label, defaultValue='', className, edit}) => 
 
     return (
         <Container>
-            {edit && <label htmlFor={name}>{label}</label>}
+            <label htmlFor={name}>{label}</label>
             <Input type="text" 
                 className={className} 
-                disabled={!edit} 
-                edit={edit} 
                 {...field} 
             />
         </Container>
