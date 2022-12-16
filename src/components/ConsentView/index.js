@@ -15,11 +15,11 @@ const FloatContainer = styled.div`
 
 const ConsentView = ({data}) => {
 
-    const {name, playAge, consents} = data;
+    const {name, playAge, consents, pronouns} = data;
 
     return (
         <Container>
-            <NameTag {...{name, playAge}} />
+            <NameTag {...{name, playAge, pronouns}} />
             <ConsentList {...{consents}} />
             <FloatContainer>
                 <EditToggle edit={false} to='/change' />

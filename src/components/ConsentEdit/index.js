@@ -45,6 +45,13 @@ const ConsentEdit = ({form}) => {
                 label='Play Age'
                 defaultValue='Toddler'
             />
+            <TextInput 
+                control={control}
+                register={register}
+                name='pronouns'
+                label='Pronouns'
+                defaultValue='magic'
+            />
             <ThemePicker form={form} />
             <ConsentListEdit form={form} />
             <EditContainer>

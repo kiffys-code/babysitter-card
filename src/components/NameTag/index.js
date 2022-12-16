@@ -20,12 +20,22 @@ const PlayAge = styled.h2`
     color: ${({theme}) => theme.text};
 `
 
-const NameTag = ({name, playAge}) => {
+const Pronouns = styled.h2`
+    font-family: AyeshaDisplay, "Comic Sans", cursive;
+    font-size: 1.5rem;
+    font-style: italic;
+    background: transparent;
+    padding: 0;
+    color: ${({theme}) => theme.text};
+`
+
+const NameTag = ({name, playAge, pronouns}) => {
 
     return (
         <Container>
             <Name>{name}</Name>
             <PlayAge>{playAge}</PlayAge>
+            <Pronouns>{pronouns}</Pronouns>
         </Container>
     );
 }
