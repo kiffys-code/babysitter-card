@@ -43,7 +43,7 @@ const NameTag = ({name, playAge, pronouns, audience}) => {
             <Name>{name}</Name>
             <PlayAge>{playAge}</PlayAge>
             <Pronouns>{pronouns}</Pronouns>
-            <Audience>Intended for: {audience}</Audience>
+            {audience ? <Audience>Intended for: {audience}</Audience> : null}
         </Container>
     );
 }

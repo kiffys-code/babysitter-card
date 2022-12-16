@@ -34,14 +34,6 @@ const ConsentEdit = ({form}) => {
             <TextInput
                 control={control}
                 register={register}
-                name='audience'
-                label='Intended for...'
-                defaultValue=''
-                placeholder='event, person, time...'
-            />
-            <TextInput
-                control={control}
-                register={register}
                 name='name'
                 label='Name'
                 defaultValue=''
@@ -61,7 +53,15 @@ const ConsentEdit = ({form}) => {
                 name='pronouns'
                 label='Pronouns'
                 defaultValue=''
-                placeholder='she/her, he/him/, them/they...'
+                placeholder='they/them, she/her, he/him...'
+            />
+            <TextInput
+                control={control}
+                register={register}
+                name='audience'
+                label='Intended for...'
+                defaultValue=''
+                placeholder='event, person, time...'
             />
             <ThemePicker form={form} />
             <ConsentListEdit form={form} />

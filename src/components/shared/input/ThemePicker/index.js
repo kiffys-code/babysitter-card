@@ -12,6 +12,7 @@ const Container = styled.div`
 `
 
 const Label = styled.label`
+    align-self: flex-end;
 `
 
 const ColorButtonsContainer = styled.div`
@@ -65,7 +66,7 @@ const ThemePicker = ({form}) => {
 
     return (
         <Container>
-            <Label>Color Theme</Label>
+            <Label>Color</Label>
             <ColorButtonsContainer>
                 {renderedOptions}
             </ColorButtonsContainer>
