@@ -1,7 +1,7 @@
 import { useController } from "react-hook-form";
 import { Container, Input } from "./styled";
 
-const TextInput = ({control, name, label, defaultValue='', className}) => {
+const TextInput = ({control, name, label, placeholder, defaultValue='', className}) => {
 
     const {field} = useController({
         name: name, 
@@ -14,6 +14,7 @@ const TextInput = ({control, name, label, defaultValue='', className}) => {
             <label htmlFor={name}>{label}</label>
             <Input type="text" 
                 className={className} 
+                placeholder={placeholder}
                 {...field} 
             />
         </Container>

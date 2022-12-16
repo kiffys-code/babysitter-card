@@ -34,23 +34,34 @@ const ConsentEdit = ({form}) => {
             <TextInput
                 control={control}
                 register={register}
+                name='audience'
+                label='Intended for...'
+                defaultValue=''
+                placeholder='event, person, time...'
+            />
+            <TextInput
+                control={control}
+                register={register}
                 name='name'
                 label='Name'
-                defaultValue='This Little'
+                defaultValue=''
+                placeholder='Your name'
             />
             <TextInput 
                 control={control}
                 register={register}
                 name='playAge'
                 label='Play Age'
-                defaultValue='Toddler'
+                defaultValue=''
+                placeholder='Big, Mid, Little...'
             />
             <TextInput 
                 control={control}
                 register={register}
                 name='pronouns'
                 label='Pronouns'
-                defaultValue='magic'
+                defaultValue=''
+                placeholder='she/her, he/him/, them/they...'
             />
             <ThemePicker form={form} />
             <ConsentListEdit form={form} />

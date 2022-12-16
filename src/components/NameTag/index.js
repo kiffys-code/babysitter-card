@@ -20,8 +20,15 @@ const PlayAge = styled.h2`
     color: ${({theme}) => theme.text};
 `
 
-const Pronouns = styled.h2`
-    font-family: AyeshaDisplay, "Comic Sans", cursive;
+const Pronouns = styled.h3`
+    font-size: 1.2rem;
+    font-style: italic;
+    background: transparent;
+    padding: 0;
+    color: ${({theme}) => theme.text};
+`
+
+const Audience = styled.h4`
     font-size: 1.5rem;
     font-style: italic;
     background: transparent;
@@ -29,13 +36,14 @@ const Pronouns = styled.h2`
     color: ${({theme}) => theme.text};
 `
 
-const NameTag = ({name, playAge, pronouns}) => {
+const NameTag = ({name, playAge, pronouns, audience}) => {
 
     return (
         <Container>
             <Name>{name}</Name>
             <PlayAge>{playAge}</PlayAge>
             <Pronouns>{pronouns}</Pronouns>
+            <Audience>Intended for: {audience}</Audience>
         </Container>
     );
 }

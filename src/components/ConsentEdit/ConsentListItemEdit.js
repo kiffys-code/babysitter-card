@@ -50,6 +50,7 @@ const ConsentListItemEdit = ({control, name, consent, deleteConsent}) => {
                     control={control}
                     name={`${name}.ask`}
                     defaultValue='' 
+                    placeholder='Something special...'
                 />
                 <DeleteButton onClick={() => deleteConsent()} >
                     <DeleteIcon 
