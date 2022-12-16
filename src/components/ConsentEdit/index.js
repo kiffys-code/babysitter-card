@@ -19,14 +19,14 @@ const EditContainer = styled.div`
 
 const ConsentEdit = ({form}) => {
 
-    const {control, register, watch} = form;
-    const {setThemeColor} = useContext(ThemeContext);
+    const {control, register, watch, getValues} = form;
+    const {setThemeColor, themeColor} = useContext(ThemeContext);
 
-    const themeColor = watch('theme');
+    const watchedThemeColor = watch('theme', themeColor);
 
     useEffect(() => {
-        setThemeColor(themeColor);
-    }, [themeColor, setThemeColor]);
+        setThemeColor(getValues('theme'));
+    }, [watchedThemeColor, setThemeColor, getValues]);
 
 
     return (
