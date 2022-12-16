@@ -9,10 +9,9 @@ const defaultValues = {
 }
 
 const chosenTheme = (name) => {
-    console.log({name})
     return {
         ...defaultValues, 
-        text: themes[name].primary, 
+        text: themes[name]?.primary, 
         ...themes[name]
     }
 }
