@@ -6,7 +6,7 @@ const Input = styled.input`
     padding: 1rem 0.5rem;
     font-size: 1.2rem;
     text-align: center;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.10);
     color: ${({theme}) => theme.text} !important;
     border: solid 1px #777;
     border-radius: 10px;

@@ -11,7 +11,7 @@ const defaultValues = {
 const chosenTheme = (name) => {
     return {
         ...defaultValues, 
-        text: themes[name]?.primary, 
+        text: themes[name]?.primary,
         ...themes[name]
     }
 }

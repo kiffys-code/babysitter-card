@@ -1,6 +1,6 @@
 import EditToggle from "components/EditToggle";
 import TextInput from "components/shared/input/TextInput";
-import ThemePicker from "components/shared/input/ThemePicker";
+import ThemePicker from "components/ConsentEdit/ThemePicker";
 import { ThemeContext } from "config/context";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -63,7 +63,7 @@ const ConsentEdit = ({form}) => {
                 defaultValue=''
                 placeholder='event, person, time...'
             />
-            <ThemePicker form={form} />
+            <ThemePicker control={control} />
             <ConsentListEdit form={form} />
             <EditContainer>
                 <EditToggle edit={true} to='/' />
