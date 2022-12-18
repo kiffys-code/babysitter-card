@@ -5,7 +5,9 @@ import { useState } from "react";
 import { Icon, LEVELS } from "components/Consent";
 import StyledModal from "components/StyledModal";
 import AnswerPicker from "./AnswerPicker";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import EditableSelect from "components/shared/input/EditableSelect";
+import { templates } from "config/templates";
 
 const Container = styled.div`
     display: flex;
@@ -63,6 +65,7 @@ const CancelButton = styled(Button)`
 const ConsentListItemEdit = ({consent, updateConsent, deleteConsent}) => {
 
     const [showEditModal, setShowEditModal] = useState(false);
+    const [showTemplateModal, setShowTemplateModal] = useState(false);
     const {control, handleSubmit} = useForm({defaultValues: consent});
 
     const onSubmit = (data) => {
@@ -80,13 +83,22 @@ const ConsentListItemEdit = ({consent, updateConsent, deleteConsent}) => {
                 title='Edit Item'
                 closeModal={() => setShowEditModal(false)}
             >
-                <TextInput 
+                {/* <TextInput 
                     control={control}
                     name={`ask`}
                     label='Ask'
                     defaultValue='' 
                     placeholder='Something special...'
+                /> */}
+                <EditableSelect 
+                    control={control}
+                    name='ask'
+                    label='Ask'
+                    defaultValue='' 
+                    placeholder='Something special...'
+                    options={templates}
                 />
+                {/* <Button onClick={() => setShowTemplateModal(true)}>Click Me</Button> */}
                 <AnswerPicker 
                     control={control}
                     name={`answer`}
@@ -104,6 +116,13 @@ const ConsentListItemEdit = ({consent, updateConsent, deleteConsent}) => {
                         </ConfirmButton>
                     </ButtonGroup>
                 </ButtonsContainer>
+                {/* <StyledModal
+                    isOpen={showTemplateModal}
+                    title='Pick Template'
+                    closeModal={() => setShowTemplateModal(false)}
+                >
+                    foo
+                </StyledModal> */}
             </StyledModal>
         </>
     )
