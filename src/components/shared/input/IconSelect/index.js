@@ -3,7 +3,7 @@ import { useController } from "react-hook-form";
 const { default: styled } = require("styled-components");
 
 const Container = styled.div`
-    padding: 0.5rem;
+    padding: 0.5rem 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -15,8 +15,10 @@ const Label = styled.label`
 `
 
 const Options = styled.div`
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     gap: 0.5rem;
 `
 
@@ -28,7 +30,6 @@ const Option = styled.div`
         ? 'rgba(0, 0, 0, 0.10)' 
         : 'rgba(255, 255, 255, 0.10)'
     };
-    padding: 0.25rem;
     border-radius: 10px;
 `
 

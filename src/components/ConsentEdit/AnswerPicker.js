@@ -8,14 +8,19 @@ const IconContainer = styled.div`
     justify-content: center;
     align-items: center;
     width: 5rem;
+    padding-bottom: 0.4rem;
 `
 
 const IconLabel = styled.label`
-
+    font-style: italic;
 `
 
 const StyledIcon = styled(Icon)`
     height: 2rem;
+`
+
+const StyledIconSelect = styled(IconSelect)`
+    justify-content: space-between;
 `
 
 const AnswerPicker = ({control, name}) => {
@@ -29,7 +34,7 @@ const AnswerPicker = ({control, name}) => {
     }))
 
     return (
-        <IconSelect
+        <StyledIconSelect
             control={control} 
             name={name}
             label='Answer'

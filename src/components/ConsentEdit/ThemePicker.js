@@ -10,6 +10,8 @@ const ColorButtonContainer = styled.div`
     justify-content: center;
     gap: 0.2rem;
     padding: 0 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 3.8rem;
 `
 
 const ColorButtonLabel = styled.span`

@@ -3,7 +3,7 @@ import Modal from "styled-react-modal";
 
 const CustomModal = Modal.styled`
     background: #fff;
-    padding: 2rem;
+    padding: 1rem;
     margin: 1rem;
     border-radius: 10px;
     display: flex;
@@ -26,15 +26,13 @@ const HeaderContainer = styled.div`
     & .close {
         margin-left: auto;
         position: relative;
-        top: -1rem;
-        right: -1rem;
         padding: 0.5rem;
     }
 `
 
 const CloseIcon = styled.img`
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
 `
 
 const StyledModal = (props) => {

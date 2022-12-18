@@ -5,7 +5,12 @@ import { ThemeContext } from "config/context"
 import { getConsentPreferences } from "config/storage"
 
 const defaultValues = {
-    background: '#333'
+    background: '#333',
+    globalColors: {
+        primary: '#5cb3ed',
+        secondary: '#666',
+        warn: '#c41f30'
+    }
 }
 
 const chosenTheme = (name) => {

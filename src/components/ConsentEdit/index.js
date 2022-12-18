@@ -8,7 +8,7 @@ import styled from "styled-components";
 import ConsentListEdit from "./ConsentListEdit";
 
 const Container = styled.div`
-
+    padding: 0 0.5rem;
 `
 
 const EditContainer = styled.div`

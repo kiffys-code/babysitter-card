@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Icon, LEVELS } from "components/Consent";
 import StyledModal from "components/StyledModal";
 import AnswerPicker from "./AnswerPicker";
+import { useForm } from "react-hook-form";
 
 const Container = styled.div`
     display: flex;
@@ -24,17 +25,49 @@ const AnswerIcon = styled(Icon)`
 
 const AskText = styled.div`
     text-align: left;
+    color: ${({theme}) => theme.primary};
+`
+
+const ButtonsContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4rem;
+`
+
+const ButtonGroup = styled.div`
+    display: flex;
+    gap: 0.5rem;
 `
 
 const DeleteButton = styled(Button)`
-    background-color: red;
+    background-color: ${({theme}) => theme.globalColors.warn};
     border-radius: 10px;
     height: 3rem;
+    padding: 0 1rem;
 `
 
-const ConsentListItemEdit = ({control, name, consent, deleteConsent}) => {
+const ConfirmButton = styled(Button)`
+    background-color: ${({theme}) => theme.globalColors.primary};
+    border-radius: 10px;
+    height: 3rem;
+    padding: 0 1rem;
+`
+
+const CancelButton = styled(Button)`
+    background-color: ${({theme}) => theme.globalColors.secondary};
+    border-radius: 10px;
+    height: 3rem;
+    padding: 0 1rem;
+`
+
+const ConsentListItemEdit = ({consent, updateConsent, deleteConsent}) => {
 
     const [showEditModal, setShowEditModal] = useState(false);
+    const {control, handleSubmit} = useForm({defaultValues: consent});
+
+    const onSubmit = (data) => {
+        updateConsent(data);
+    }
 
     return (
         <>
@@ -44,54 +77,35 @@ const ConsentListItemEdit = ({control, name, consent, deleteConsent}) => {
             </Container>
             <StyledModal 
                 isOpen={showEditModal}
-                title='Edit Consent Item'
+                title='Edit Item'
                 closeModal={() => setShowEditModal(false)}
-
             >
                 <TextInput 
                     control={control}
-                    name={`${name}.ask`}
+                    name={`ask`}
                     label='Ask'
                     defaultValue='' 
                     placeholder='Something special...'
                 />
                 <AnswerPicker 
                     control={control}
-                    name={`${name}.answer`}
+                    name={`answer`}
                 />
-                <DeleteButton onClick={() => deleteConsent()} >
-                    Delete
-                 </DeleteButton>
+                <ButtonsContainer>    
+                    <DeleteButton onClick={() => deleteConsent()} >
+                        Delete
+                    </DeleteButton>
+                    <ButtonGroup>
+                        <CancelButton onClick={() => setShowEditModal(false)}>
+                            Cancel
+                        </CancelButton>
+                        <ConfirmButton onClick={handleSubmit(onSubmit)}>
+                            Save
+                        </ConfirmButton>
+                    </ButtonGroup>
+                </ButtonsContainer>
             </StyledModal>
         </>
-        // <>
-        //     <Container>
-        //         <ModalSelect 
-        //             control={control}
-        //             name={`${name}.answer`}
-        //             label={consent.ask}
-        //             defaultValue={Consent.LEVELS.yellow}
-        //             options={Object.keys(Consent.LEVELS).map(key => ({
-        //                 label: <ConsentInfo 
-        //                             level={Consent.LEVELS[key]}
-        //                         />,
-        //                 value: key
-        //             }))}
-        //         />
-        //         <Ask 
-        //             control={control}
-        //             name={`${name}.ask`}
-        //             defaultValue='' 
-        //             placeholder='Something special...'
-        //         />
-        //         <DeleteButton onClick={() => deleteConsent()} >
-        //             <DeleteIcon 
-        //                 src={require('./trash-bin.png')}
-        //                 alt='Delete'
-        //             />
-        //         </DeleteButton>
-        //     </Container>
-        // </>
     )
 }
 

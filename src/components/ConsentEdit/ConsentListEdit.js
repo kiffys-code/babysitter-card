@@ -6,7 +6,7 @@ import ConsentListItemEdit from "./ConsentListItemEdit";
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0rem;
     gap: 1rem;
 `
 
@@ -14,7 +14,7 @@ const NewConsentButton = styled(Button)`
     font-size: 1.2rem;
     padding: 1rem 2rem;
     border-radius: 10px;
-    background-color: #5cb3ed;
+    background-color: ${({theme}) => theme.globalColors.primary};
     color: #fff;
 `
 
@@ -32,7 +32,7 @@ const DEFAULT_CONSENT = {
 const ConsentListEdit = ({form}) => {
 
     const {control} = form;
-    const {fields, remove, append} = useFieldArray({
+    const {fields, remove, append, update} = useFieldArray({
         name: 'consents',
         control: control,
         keyName: '_id',
@@ -41,12 +41,11 @@ const ConsentListEdit = ({form}) => {
     const renderedConsents = fields && fields.length > 0 ? fields.map((item, index) => 
         <ConsentListItemEdit
             key={item._id} 
-            control={control}
-            name={`consents[${index}]`}
             consent={item} 
+            updateConsent={(val) => update(index, val)}
             deleteConsent={() => remove(index)}
         />
-    ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>
+    ) : <NewConsentsMessage>Click the New Consent button to begin!</NewConsentsMessage>
 
     return (
         <Container>
