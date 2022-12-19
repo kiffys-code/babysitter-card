@@ -49,6 +49,7 @@ const Attributions = () => {
             <Link href="https://www.flaticon.com/free-icons/trash-can" title="trash can icons">
                 Trash can icons created by IYAHICON - Flaticon
             </Link>
+            <Link href="https://www.flaticon.com/free-icons/childhood" title="childhood icons">Childhood icons created by Freepik - Flaticon</Link>
         </Container>
     )
 }
