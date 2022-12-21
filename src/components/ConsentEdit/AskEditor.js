@@ -1,6 +1,5 @@
 import Button from "components/shared/Button";
 import EditableSelect from "components/shared/input/EditableSelect";
-import TextInput from "components/shared/input/TextInput";
 import { Input } from "components/shared/input/TextInput/styled";
 import { templates } from "config/templates";
 import { useState } from "react";

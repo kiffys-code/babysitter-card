@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import TextInput from "components/shared/input/TextInput";
 import Button from "components/shared/Button";
 import { useState } from "react";
 import { Icon, LEVELS } from "components/Consent";
 import StyledModal from "components/StyledModal";
 import AnswerPicker from "./AnswerPicker";
-import { Controller, useForm } from "react-hook-form";
-import EditableSelect from "components/shared/input/EditableSelect";
-import { templates } from "config/templates";
+import { useForm } from "react-hook-form";
 import AskEditor from "./AskEditor";
 
 const CustomStyledModal = styled(StyledModal)`
