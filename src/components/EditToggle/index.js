@@ -6,7 +6,7 @@ const Button = styled.button`
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: #5cb3ed;
+    background-color: ${({theme}) => theme.globalColors.primary};
     padding: 0.8rem;
     height: 4rem;
     width: 4rem;
