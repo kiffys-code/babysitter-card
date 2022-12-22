@@ -8,6 +8,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     background-color: ${({theme}) => theme.background};
+    padding-top: 1rem;    
 `;
 
 const Root = () => {

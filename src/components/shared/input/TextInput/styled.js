@@ -1,3 +1,4 @@
+import themes, {defaultTheme } from "config/themes";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -7,7 +8,7 @@ const Input = styled.input`
     font-size: 1.2rem;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.10);
-    color: ${({theme}) => theme.text} !important;
+    color: ${({theme}) => theme.text || themes[defaultTheme].primary} !important;
     border: solid 1px #777;
     border-radius: 10px;
     color: black;

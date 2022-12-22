@@ -1,3 +1,4 @@
+import themes, { defaultTheme } from 'config/themes';
 import { useController } from 'react-hook-form';
 import CreatableSelect from 'react-select/creatable';
 import styled from 'styled-components';
@@ -22,16 +23,16 @@ const Container = styled.div`
     & .react-select-container .react-select-custom__input-container, 
     & .react-select-container .react-select-custom__placeholder, 
     & .react-select-container .react-select-custom__single-value {
-        color: ${({theme}) => theme.primary};
+        color: ${({theme}) => theme.primary || themes[defaultTheme].primary};
         padding: 0;
     }
     & .react-select-container .react-select-custom__option {
         font-size: 1.2rem;
-        color: ${({theme}) => theme.primary};
+        color: ${({theme}) => theme.primary || themes[defaultTheme].primary};
         background-color: ${({theme}) => theme.background};
     }
     & .react-select-container .react-select-custom__option--is-selected {
-        color: ${({theme}) => theme.primary};
+        color: ${({theme}) => theme.primary || themes[defaultTheme].primary};
         background-color: rgba(0, 0, 0, 0.10);
     }
     
