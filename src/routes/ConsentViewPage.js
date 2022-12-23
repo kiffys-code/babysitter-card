@@ -6,7 +6,7 @@ const ConsentViewPage = () => {
     const {data} = useLoaderData();
     
     return (
-        <ConsentView {...{data}} />
+        <ConsentView {...{data}} /> 
     )
 }
 

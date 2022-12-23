@@ -10,3 +10,11 @@ export const getConsentPreferences = () => {
         return {};
     }
 }
+
+export const setConsentPreferences = (data) => {
+    try{
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+        console.error('could not overwrite preferences data', e);
+    }
+}

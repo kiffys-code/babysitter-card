@@ -1,5 +1,6 @@
 import EditToggle from "components/EditToggle";
 import NameTag from "components/NameTag";
+import Export from "components/Share/Export";
 import styled from "styled-components";
 import ConsentList from "./ConsentList";
 
@@ -21,6 +22,7 @@ const ConsentView = ({data}) => {
         <Container>
             <NameTag {...{name, playAge, pronouns, audience}} />
             <ConsentList {...{consents}} />
+            <Export {...{data}} />
             <FloatContainer>
                 <EditToggle edit={false} to='/change' />
             </FloatContainer>
