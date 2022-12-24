@@ -1,9 +1,9 @@
 import ConsentView from "components/ConsentView";
 import CopyToClipboard from "components/CopyToClipboard";
 import StyledModal from "components/StyledModal";
+import { useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { encode } from "util/data-utils";
-
 
 const ExportDataPage = () => {
 
@@ -15,12 +15,6 @@ const ExportDataPage = () => {
     const handleClose = () => {
         navigate('/');
     }
-
-    // if(navigator.share) {
-        //     console.log('todo nav apis for mobile')
-        // } else {
-        //     setshowDesktopShare(true);
-        // }
 
     return (
         <>
