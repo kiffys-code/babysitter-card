@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { getConsentPreferences } from "config/storage";
 import ImportDataPage from "./ImportDataPage";
+import ExportDataPage from "./ExportDataPage";
 
 const loader = async () => {
     const data = getConsentPreferences() || {};
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
                 path: '/import',
                 element: <ImportDataPage />,
                 loader: importLoader
+            },
+            {
+                path: '/export',
+                element: <ExportDataPage />,
+                loader: loader
             }
         ]
     }

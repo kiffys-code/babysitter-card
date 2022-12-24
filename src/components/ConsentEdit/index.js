@@ -1,4 +1,3 @@
-import EditToggle from "components/EditToggle";
 import TextInput from "components/shared/input/TextInput";
 import ThemePicker from "components/ConsentEdit/ThemePicker";
 import { ThemeContext } from "config/context";
@@ -6,16 +5,14 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import styled from "styled-components";
 import ConsentListEdit from "./ConsentListEdit";
+import { Link } from "react-router-dom";
+import RoundedButton from "components/shared/RoundedButton";
+import Icon from "components/shared/Icon";
+import MenuContainer from "components/shared/MenuContainer";
 
 const Container = styled.div`
     padding: 0 0.5rem;
 `
-
-const EditContainer = styled.div`
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-`;
 
 const ConsentEdit = ({form}) => {
 
@@ -65,9 +62,13 @@ const ConsentEdit = ({form}) => {
             />
             <ThemePicker control={control} />
             <ConsentListEdit form={form} />
-            <EditContainer>
-                <EditToggle edit={true} to='/' />
-            </EditContainer>
+            <MenuContainer>
+                <Link to='/'>
+                    <RoundedButton as='div'>
+                        <Icon src={require('assets/img/check.png')} alt='Save' />
+                    </RoundedButton>
+                </Link>
+            </MenuContainer>
         </Container>
     );
 }
