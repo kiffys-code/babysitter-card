@@ -6,7 +6,34 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { decode } from "util/data-utils";
 
-const Message = styled.p``
+const Content = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    padding-top: 0;
+    gap: 1rem;
+`
+
+const Message = styled.p`
+`
+
+const ButtonBar = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`
+
+const StyledButton = styled(Button)`
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+`
+
+const AcceptButton = styled(StyledButton)`
+    background-color: ${({theme}) => theme.globalColors.warn};
+`
+const CancelButton = styled(StyledButton)`
+    background-color: ${({theme}) => theme.globalColors.secondary};
+`
 
 const ImportDataPage = () => {
 
@@ -19,7 +46,7 @@ const ImportDataPage = () => {
 
     const handleAccept = () => {
         setConsentPreferences(decode(urlData));
-        navigate('/')
+        navigate('/');
     }
 
     return <>
@@ -29,11 +56,19 @@ const ImportDataPage = () => {
             isOpen={true} 
             closeModal={handleReject}
         >
-            <Message>
-                Import consent data? This action will override your own data!
-            </Message>
-            <Button onClick={handleAccept}>Accept Data</Button>
-            <Button onClick={handleReject}>Cancel Import</Button>
+            <Content>
+                <Message>
+                    Import consent data? This action will override your own data!
+                </Message>
+                <ButtonBar>
+                    <CancelButton onClick={handleReject}>
+                        Cancel Import
+                    </CancelButton>
+                    <AcceptButton onClick={handleAccept}>
+                        Accept Data
+                    </AcceptButton>
+                </ButtonBar>
+            </Content>
         </StyledModal>
     </>
 
