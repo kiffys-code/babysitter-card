@@ -77,6 +77,7 @@ const StyledConsentData = styled(ConsentData)`
     width: 90%;
     padding-top: 1rem;
     flex: 1 1 auto;
+    border-radius: 10px;
 `
 
 const ImportDataPage = () => {

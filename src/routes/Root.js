@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
+import AdultConsent from "components/AdultConsent";
 
 const App = styled.div`
     display: flex;
@@ -16,6 +17,10 @@ const Content = styled.div`
     overflow: hidden;
 `
 
+const FooterContent = styled.div`
+    padding: 0.5rem 0;
+`
+
 const Root = () => {
 
     return (
@@ -23,7 +28,10 @@ const Root = () => {
             <Content id='content'>
                 <Outlet />
             </Content>
-            <Footer id='footer'/>
+            <FooterContent>
+                <Footer id='footer'/>
+                <AdultConsent id='adult-consent' />
+            </FooterContent>
         </App>
     );
 }

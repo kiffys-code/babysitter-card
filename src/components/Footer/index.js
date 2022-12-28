@@ -9,7 +9,6 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     filter: brightness(0.8);
-    padding: 0.5rem 0;
 
     & * {
         color: ${({theme}) => theme.text};
@@ -20,6 +19,7 @@ const Footer = ({className}) => {
 
     const [showAttr, setShowAttr] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
+    const [showAdultOnly, setShowAdultOnly] = useState(false);
 
     return (
         <Container className={className}>
@@ -29,7 +29,6 @@ const Footer = ({className}) => {
             >
                 Attributions
             </span>
-            <span><i>18+ Only</i></span>
             <span 
                 onClick={() => setShowAbout(true)} 
             >

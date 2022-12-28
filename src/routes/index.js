@@ -6,6 +6,7 @@ import ErrorPage from "./ErrorPage";
 import { getConsentPreferences } from "config/storage";
 import ImportDataPage from "./ImportDataPage";
 import ExportDataPage from "./ExportDataPage";
+import AdultOnlyPage from "./AdultOnlyPage";
 
 const loader = async () => {
     const data = getConsentPreferences() || {};
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                 path: '/export',
                 element: <ExportDataPage />,
                 loader: loader
+            }, 
+            {
+                path: '/adult-only',
+                element: <AdultOnlyPage />
             }
         ]
     }
