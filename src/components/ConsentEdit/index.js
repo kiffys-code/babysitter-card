@@ -11,6 +11,8 @@ import Icon from "components/shared/Icon";
 import MenuContainer from "components/shared/MenuContainer";
 
 const Container = styled.div`
+    height: 100%;
+    overflow: auto;
     padding: 0 0.5rem;
 `
 
