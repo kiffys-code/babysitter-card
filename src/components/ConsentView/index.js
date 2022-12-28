@@ -1,21 +1,21 @@
 import HamburgerMenu from "components/HamburgerMenu";
-import NameTag from "components/NameTag";
 import MenuContainer from "components/shared/MenuContainer";
 import styled from "styled-components";
-import ConsentList from "./ConsentList";
+import ConsentData from "./ConsentData";
 
 const Container = styled.div`
+    height: 100%;
+`
 
+const StyledConsentData = styled(ConsentData)`
+    height: 100%;
 `
 
 const ConsentView = ({data}) => {
 
-    const {name, playAge, consents, pronouns, audience} = data;
-
     return (
         <Container>
-            <NameTag {...{name, playAge, pronouns, audience}} />
-            <ConsentList {...{consents}} />
+            <StyledConsentData {...{data}} />
             <MenuContainer>
                 <HamburgerMenu {...{data}} />
             </MenuContainer>

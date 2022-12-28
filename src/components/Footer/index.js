@@ -9,19 +9,20 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     filter: brightness(0.8);
+    padding: 0.5rem 0;
 
     & * {
         color: ${({theme}) => theme.text};
     }
 `
 
-const Footer = () => {
+const Footer = ({className}) => {
 
     const [showAttr, setShowAttr] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
 
     return (
-        <Container>
+        <Container className={className}>
             
             <span 
                 onClick={() => setShowAttr(true)} 

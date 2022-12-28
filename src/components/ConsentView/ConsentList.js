@@ -13,7 +13,7 @@ const NewConsentsMessage = styled.p`
     font-size: 1rem;
 `
 
-const ConsentList = ({consents}) => {
+const ConsentList = ({consents, className}) => {
 
     const renderedConsents = consents && consents.length > 0 ? consents.map((item, index) => 
         <ConsentListItem 
@@ -23,7 +23,7 @@ const ConsentList = ({consents}) => {
     ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>;
 
     return (
-        <Container>
+        <Container className={className}>
             {renderedConsents}
         </Container>
     );
