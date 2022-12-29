@@ -4,7 +4,7 @@ import ConsentViewPage from "./ConsentViewPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { getConsentPreferences } from "config/storage";
-import ImportDataPage from "./ImportDataPage";
+import ViewSharePage from "./ViewSharePage";
 import ExportDataPage from "./ExportDataPage";
 import AdultOnlyPage from "./AdultOnlyPage";
 
@@ -36,10 +36,15 @@ const router = createBrowserRouter([
                 loader: loader
             }, 
             {
-                path: '/import',
-                element: <ImportDataPage />,
+                path: '/view',
+                element: <ViewSharePage />,
                 loader: importLoader
             },
+            // {
+            //     path: '/import',
+            //     element: <ImportDataPage />,
+            //     loader: importLoader
+            // },
             {
                 path: '/export',
                 element: <ExportDataPage />,

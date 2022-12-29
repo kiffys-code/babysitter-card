@@ -9,7 +9,7 @@ const ExportDataPage = () => {
     const navigate = useNavigate();
     const {data} = useLoaderData();
     const encoded = encode({...data, shareDate: new Date() });
-    const shareUrl = `${window.location.origin}/import?data=${encoded}`
+    const shareUrl = `${window.location.origin}/view?data=${encoded}`
 
     const handleClose = () => {
         navigate('/');

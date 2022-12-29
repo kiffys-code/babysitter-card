@@ -19,7 +19,6 @@ const Footer = ({className}) => {
 
     const [showAttr, setShowAttr] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
-    const [showAdultOnly, setShowAdultOnly] = useState(false);
 
     return (
         <Container className={className}>

@@ -58,7 +58,6 @@ const AdultConsent = () => {
         navigate('adult-only');
     }
 
-    console.log(location)
     const handleAccept = () => {
         setIsAdult(true);
         setShow(false);
