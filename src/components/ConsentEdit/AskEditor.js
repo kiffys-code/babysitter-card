@@ -65,8 +65,8 @@ const AskEditor = ({control}) => {
         }/>
 
     const renderedIcon = editMode 
-        ? <Icon src={require('./crayon.png')} />
-        : <Icon src={require('./toy-blocks.png')} />
+        ? <Icon src={require('assets/img/crayon.png')} />
+        : <Icon src={require('assets/img/toy-blocks.png')} />
 
     return (
         <Container>

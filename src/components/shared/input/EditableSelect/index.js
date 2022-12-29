@@ -50,7 +50,6 @@ const EditableSelect = ({control, name, defaultValue='', className, options}) =>
     }
 
     const handleChange = (sel) => {
-        console.log(sel)
         field.onChange(sel.label)
     }
 

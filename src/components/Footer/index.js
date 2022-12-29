@@ -15,20 +15,19 @@ const Container = styled.div`
     }
 `
 
-const Footer = () => {
+const Footer = ({className}) => {
 
     const [showAttr, setShowAttr] = useState(false);
     const [showAbout, setShowAbout] = useState(false);
 
     return (
-        <Container>
+        <Container className={className}>
             
             <span 
                 onClick={() => setShowAttr(true)} 
             >
                 Attributions
             </span>
-            <span><i>18+ Only</i></span>
             <span 
                 onClick={() => setShowAbout(true)} 
             >

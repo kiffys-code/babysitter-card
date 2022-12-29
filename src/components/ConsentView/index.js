@@ -1,29 +1,24 @@
-import EditToggle from "components/EditToggle";
-import NameTag from "components/NameTag";
+import HamburgerMenu from "components/HamburgerMenu";
+import MenuContainer from "components/shared/MenuContainer";
 import styled from "styled-components";
-import ConsentList from "./ConsentList";
+import ConsentData from "./ConsentData";
 
 const Container = styled.div`
-
+    height: 100%;
 `
 
-const FloatContainer = styled.div`
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-`;
+const StyledConsentData = styled(ConsentData)`
+    height: 100%;
+`
 
 const ConsentView = ({data}) => {
 
-    const {name, playAge, consents, pronouns, audience} = data;
-
     return (
         <Container>
-            <NameTag {...{name, playAge, pronouns, audience}} />
-            <ConsentList {...{consents}} />
-            <FloatContainer>
-                <EditToggle edit={false} to='/change' />
-            </FloatContainer>
+            <StyledConsentData {...{data}} />
+            <MenuContainer>
+                <HamburgerMenu {...{data}} />
+            </MenuContainer>
         </Container>
     )
 }

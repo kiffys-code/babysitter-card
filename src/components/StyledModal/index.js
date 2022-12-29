@@ -10,6 +10,7 @@ const CustomModal = Modal.styled`
     flex-direction: column;
     background-color: ${({theme}) => theme.background};
     max-height: 80vh;
+    z-index: 999;
 `
 
 const HeaderContainer = styled.div`
@@ -47,7 +48,7 @@ const StyledModal = (props) => {
         >
             <HeaderContainer id='custom-modal-header'>
                 <h1 className='title'>{title}</h1>
-                <CloseIcon onClick={closeModal} className='close' src={require('./close.png')} alt='Close' />
+                <CloseIcon onClick={closeModal} className='close' src={require('assets/img/close.png')} alt='Close' />
             </HeaderContainer>
             {children}
         </CustomModal>

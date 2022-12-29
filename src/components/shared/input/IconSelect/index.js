@@ -33,7 +33,7 @@ const Option = styled.div`
     border-radius: 10px;
 `
 
-const FlatSelect = ({control, name, label, defaultValue, options, className}) => {
+const IconSelect = ({control, name, label, defaultValue, options, className}) => {
     const {field} = useController({name, control, defaultValue});
 
     const onOptionClick = (val) => {
@@ -42,6 +42,7 @@ const FlatSelect = ({control, name, label, defaultValue, options, className}) =>
 
     const renderedOptions = options.map(it =>
         <Option 
+            key={it.value}
             onClick={() => onOptionClick(it.value)} 
             active={it.value===field.value}
         >
@@ -58,4 +59,4 @@ const FlatSelect = ({control, name, label, defaultValue, options, className}) =>
 
 }
 
-export default FlatSelect;
+export default IconSelect;

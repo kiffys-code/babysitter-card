@@ -36,10 +36,10 @@ const Audience = styled.h4`
     color: ${({theme}) => theme.text};
 `
 
-const NameTag = ({name, playAge, pronouns, audience}) => {
+const NameTag = ({name, playAge, pronouns, audience, className}) => {
 
     return (
-        <Container>
+        <Container className={className}>
             <Name>{name}</Name>
             <PlayAge>{playAge}</PlayAge>
             <Pronouns>{pronouns}</Pronouns>

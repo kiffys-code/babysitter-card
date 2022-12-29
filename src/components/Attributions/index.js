@@ -50,6 +50,10 @@ const Attributions = () => {
                 Trash can icons created by IYAHICON - Flaticon
             </Link>
             <Link href="https://www.flaticon.com/free-icons/childhood" title="childhood icons">Childhood icons created by Freepik - Flaticon</Link>
+            <Link href="https://www.flaticon.com/free-icons/share" title="share icons">Share icons created by Freepik - Flaticon</Link>
+            <Link href="https://www.flaticon.com/free-icons/copy" title="copy icons">Copy icons created by Anggara - Flaticon</Link>
+            <Link href="https://www.flaticon.com/free-icons/menu" title="menu icons">Menu icons created by Febrian Hidayat - Flaticon</Link>
+            <Link href="https://www.flaticon.com/free-icons/home" title="home icons">Home icons created by Dave Gandy - Flaticon</Link>
         </Container>
     )
 }
