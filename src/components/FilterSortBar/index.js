@@ -34,7 +34,7 @@ const gyrSort = (a, b) => {
 
 const FilterSortBar = ({availableConsents=[], setConsents, className}) => {
 
-    const [sortAnswer, setSortAnswer] = useState(DIRECTION.NONE);
+    const [sortAnswer, setSortAnswer] = useState(DIRECTION.ASC);
 
     useEffect(() => {
         setConsents(
