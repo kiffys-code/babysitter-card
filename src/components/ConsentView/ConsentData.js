@@ -49,17 +49,19 @@ const StyledFilterSortBar = styled(FilterSortBar)`
 
 const ConsentData = ({data, className}) => {
 
-    const {name, playAge, consents, pronouns, audience} = data;
+    const {name, playAge, consents=[], pronouns, audience} = data;
 
     const [sortedConsents, setSortedConsents] = useState(consents || []);
     // const [showFilterSort, setShowFilterSort] = useState(false);
     const [sortAnswer, setSortAnswer] = useState(DIRECTION.ASC);
 
     useEffect(() => {
-        setSortedConsents(
-            [...consents]
-            .sort(directionSortFunction(sortAnswer, gyrSort))
-        );
+        if(consents && consents.length > 0) {
+            setSortedConsents(
+                [...consents]
+                .sort(directionSortFunction(sortAnswer, gyrSort))
+            );
+        }
     }, [consents, setSortedConsents, sortAnswer])
 
     return (
