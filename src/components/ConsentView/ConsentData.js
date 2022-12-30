@@ -3,6 +3,8 @@ import { useState } from "react";
 import styled from "styled-components";
 import ConsentList from "./ConsentList";
 import FilterSortBar from "../FilterSortBar";
+import RoundedButton from "components/shared/RoundedButton";
+import Icon from "components/shared/Icon";
 
 const Container = styled.div`
     display: flex;
@@ -12,21 +14,59 @@ const Container = styled.div`
 
 const StyledConsentList = styled(ConsentList)`
     overflow: auto;
+    padding: 0.25rem 0.5rem;
+`
+
+const ConsentListHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+`
+
+const FilterButton = styled(RoundedButton)`
+    height: 3em;
+    width: 3em;
+
+    & img {
+        height: 1.5em;
+        width: 1.5em; 
+    }
+`
+
+// Instead of not rendering the component, 
+// we hide visually so it keeps its state
+const SortBarContainer = styled.div`
+    padding: 0 0.5rem;
+    display: ${({show}) => show ? 'inherit' : 'none'};
+`
+
+const StyledFilterSortBar = styled(FilterSortBar)`
+    width: 100%;
 `
 
 const ConsentData = ({data, className}) => {
 
     const {name, playAge, consents, pronouns, audience} = data;
 
-    const [sortedConsents, setSortedConsents] = useState(consents);
+    const [sortedConsents, setSortedConsents] = useState(consents || []);
+    const [showFilterSort, setShowFilterSort] = useState(false);
 
     return (
         <Container id='consent-data' className={className} >
             <NameTag {...{name, playAge, pronouns, audience}} />
-            <FilterSortBar {...{
-                availableConsents: consents, 
-                setConsents: setSortedConsents
-            }} />
+            <ConsentListHeader>
+                <h2>Care Guide</h2>
+                <FilterButton onClick={() => setShowFilterSort(!showFilterSort)}>
+                    <Icon src={require('./filter.png')} alt='sort/filter' />
+                </FilterButton>
+            </ConsentListHeader>
+            <SortBarContainer show={showFilterSort}>
+                <StyledFilterSortBar {...{
+                    availableConsents: consents, 
+                    setConsents: setSortedConsents
+                }}/>
+            </SortBarContainer>
             <StyledConsentList {...{consents: sortedConsents}} />
         </Container>
     )

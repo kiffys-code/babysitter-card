@@ -1,14 +1,6 @@
-const { default: Button } = require("components/shared/Button");
-const { default: Icon } = require("components/shared/Icon");
-const { default: styled } = require("styled-components")
-
-const StyledButton = styled(Button)`
-    display: flex;
-    gap: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
-    background-color: ${({theme}) => theme.globalColors.primary};
-`
+import { StyledButton } from "./styles";
+import Icon from 'components/shared/Icon';
+import styled from "styled-components";
 
 const StyledIcon = styled(Icon)`
     height: 1rem;
