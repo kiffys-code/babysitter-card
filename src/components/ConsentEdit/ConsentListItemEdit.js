@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Button from "components/shared/Button";
 import { useState } from "react";
-import { Icon, LEVELS } from "components/Consent";
+import { ConsentIcon, LEVELS } from "components/Consent";
 import StyledModal from "components/StyledModal";
 import AnswerPicker from "./AnswerPicker";
 import { useForm } from "react-hook-form";
@@ -23,7 +23,7 @@ const Container = styled.div`
     background-color: rgb(255, 255, 255, 0.10);
 `
 
-const AnswerIcon = styled(Icon)`
+const AnswerIcon = styled(ConsentIcon)`
     height: 2rem;
 `
 

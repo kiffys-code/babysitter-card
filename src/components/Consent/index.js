@@ -25,7 +25,7 @@ const Image = styled.img`
     display: inline-block;
 `
 
-const Icon = ({level, className, onClick}) => {
+const ConsentIcon = ({level, className, onClick}) => {
     return <Image 
         src={level.image}
         alt={level.value}
@@ -34,4 +34,4 @@ const Icon = ({level, className, onClick}) => {
     />
 }
 
-export {LEVELS, Icon};
+export {LEVELS, ConsentIcon};
