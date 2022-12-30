@@ -7,6 +7,10 @@ const StyledButton = styled.button`
     text-align: center;
     border: 1px solid white;
     box-shadow: 1px 1px 2px black;
+
+    &:active {
+        filter: brightness(0.8);
+    }
 `
 
 const Button = ({children, className, ...props}) => {
