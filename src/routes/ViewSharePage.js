@@ -6,6 +6,7 @@ import { Link, useLoaderData } from "react-router-dom";
 import styled from "styled-components";
 import { decode } from "util/data-utils";
 import TimeAgo from "util/time-utils";
+import {useState, useEffect} from 'react';
 
 const WarningContainer = styled.div`
     display: flex;
@@ -49,12 +50,15 @@ const ViewSharePage = () => {
 
     const {urlData} = useLoaderData();
 
-    if(!urlData) {
-        throw Error('No share data')
-    }
-    const data = decode(urlData);
+    const [data, setData] = useState();
 
-    const startDate = new Date(data.shareDate);
+    useEffect(() => {
+        (async () => {
+            setData(await decode(urlData));
+        })().catch(e => console.log("couldn't decompress data", e))
+    }, []);
+    
+    const startDate = new Date(data?.shareDate);
     const endDate = new Date();
     const diff = endDate.getTime() - startDate.getTime();
     const timeAgo = new TimeAgo();
@@ -65,7 +69,7 @@ const ViewSharePage = () => {
         <WarningContainer id='warning-container'>
             <ShareDate id='share-date'>Shared {elapsed} ago</ShareDate>
             <WarningDetail id='warning-detail'>Current details must be clarified before any play session!</WarningDetail>
-            <StyledConsentData {...{data}}  />
+            {data ? <StyledConsentData {...{data}}  /> : null }
             <MenuContainer>
                 <Link to='/'>
                     <RoundedButton>
