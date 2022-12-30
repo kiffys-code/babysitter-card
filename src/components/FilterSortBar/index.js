@@ -24,7 +24,7 @@ const ClearButton = styled(StyledButton)`
 `
 
 const gyrDefault = Object.keys(LEVELS);
-const gyrSort = (a, b) => {
+export const gyrSort = (a, b) => {
     if(a.answer === b.answer) {
         return 0;
     } else {
