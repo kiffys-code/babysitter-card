@@ -18,7 +18,7 @@ const ExportDataPage = () => {
         })().catch(e => console.error('could not compress data'))
     }, [data])
 
-    const shareUrl = `${window.location.origin}/view?data=${encoded}`
+    const shareUrl = `${window.location.origin}/#/view?data=${encoded}`
 
     const handleClose = () => {
         navigate('/');

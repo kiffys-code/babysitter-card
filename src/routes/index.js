@@ -1,7 +1,7 @@
 import Root from "./Root";
 import ConsentChangePage from "./ConsentChangePage";
 import ConsentViewPage from "./ConsentViewPage";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { getConsentPreferences } from "config/storage";
 import ViewSharePage from "./ViewSharePage";
@@ -19,7 +19,7 @@ const importLoader = async ({request}) => {
     return {storedData, urlData};
 }
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: '/',
         element: <Root />,
