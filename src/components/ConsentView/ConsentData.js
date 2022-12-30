@@ -1,6 +1,8 @@
 import NameTag from "components/NameTag";
+import { useState } from "react";
 import styled from "styled-components";
 import ConsentList from "./ConsentList";
+import FilterSortBar from "../FilterSortBar";
 
 const Container = styled.div`
     display: flex;
@@ -16,10 +18,16 @@ const ConsentData = ({data, className}) => {
 
     const {name, playAge, consents, pronouns, audience} = data;
 
+    const [sortedConsents, setSortedConsents] = useState(consents);
+
     return (
         <Container id='consent-data' className={className} >
             <NameTag {...{name, playAge, pronouns, audience}} />
-            <StyledConsentList {...{consents}} />
+            <FilterSortBar {...{
+                availableConsents: consents, 
+                setConsents: setSortedConsents
+            }} />
+            <StyledConsentList {...{consents: sortedConsents}} />
         </Container>
     )
 }
