@@ -37,3 +37,7 @@ export const setIsAdult = (val) => {
         console.error('could not overwrite adult consent 18+ data', e);
     }
 }
+
+export const revokeAllData = () => {
+    localStorage.clear();
+}

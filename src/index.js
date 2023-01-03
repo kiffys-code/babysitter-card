@@ -38,6 +38,12 @@ const GlobalStyles = createGlobalStyle`
     background-color: #333;
   }
 
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
