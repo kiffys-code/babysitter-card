@@ -3,13 +3,22 @@ import CopyToClipboard from "components/CopyToClipboard";
 import StyledModal from "components/StyledModal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { encode } from "util/data-utils";
+import {useState, useEffect} from 'react';
+
 
 const ExportDataPage = () => {
 
+    const [encoded, setEncoded] = useState();
     const navigate = useNavigate();
     const {data} = useLoaderData();
-    const encoded = encode({...data, shareDate: new Date() });
-    const shareUrl = `${window.location.origin}/view?data=${encoded}`
+
+    useEffect(() => {
+        (async () => {
+            setEncoded(await encode({...data, shareDate: new Date() }))
+        })().catch(e => console.error('could not compress data'))
+    }, [data])
+
+    const shareUrl = `${window.location.origin}/#/view?data=${encoded}`
 
     const handleClose = () => {
         navigate('/');

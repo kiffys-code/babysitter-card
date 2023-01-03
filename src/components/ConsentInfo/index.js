@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Icon } from "components/Consent";
+import { ConsentIcon } from "components/Consent";
 
 const Container = styled.div`
     display: flex;
@@ -26,7 +26,7 @@ const ConsentInfo = ({level, onClick}) => {
 
     return (
         <Container onClick={onClick} >
-            <Icon level={level}/>
+            <ConsentIcon level={level}/>
             <div>
                 <h2 className="value">{level.value}</h2>
                 <p className="explanation">{level.explanation}</p>

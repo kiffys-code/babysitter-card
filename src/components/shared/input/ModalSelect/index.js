@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useController } from "react-hook-form";
 import styled from "styled-components";
 import StyledModal from "components/StyledModal";
-import {LEVELS, Icon} from "components/Consent";
+import {LEVELS, ConsentIcon} from "components/Consent";
 import Button from 'components/shared/Button';
 
 const ModalContentContainer = styled.div`
@@ -49,7 +49,7 @@ const ModalSelect = ({control, name, label, defaultValue, options, className}) =
     return (
         <div>
             <AnswerButton onClick={() => setShowAnswerModal(true)}>
-                <Icon level={LEVELS[field.value]}>{field.value}</Icon>
+                <ConsentIcon level={LEVELS[field.value]}>{field.value}</ConsentIcon>
             </AnswerButton>
             <StyledModal
                 isOpen={showAnswerModal}

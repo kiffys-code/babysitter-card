@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
-import AdultConsent from "components/AdultConsent";
+import TermsAndConditionsConsent from "components/TermsAndConditionsConsent";
 
 const App = styled.div`
     display: flex;
@@ -30,7 +30,7 @@ const Root = () => {
             </Content>
             <FooterContent>
                 <Footer id='footer'/>
-                <AdultConsent id='adult-consent' />
+                <TermsAndConditionsConsent id='adult-consent' />
             </FooterContent>
         </App>
     );

@@ -1,15 +1,17 @@
+import jurl from 'json-url';
+const codec = jurl('lzw');
 
-export const encode = (data) => {
+export const encode = async (data) => {
     if(data) {
-        return window.btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+        return await codec.compress(data);
     } else {
         return null;
     }
 }
 
-export const decode = (data) => {
+export const decode = async (data) => {
     if(data) {
-        return JSON.parse(decodeURIComponent(escape(window.atob(data))));
+        return await codec.decompress(data);
     } else {
         return null;
     }

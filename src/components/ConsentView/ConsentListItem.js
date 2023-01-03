@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {LEVELS, Icon as ConsentIcon} from "components/Consent"
+import {LEVELS, ConsentIcon} from "components/Consent"
 import { useState } from "react";
 import StyledModal from "components/StyledModal";
 import ConsentInfo from "components/ConsentInfo";

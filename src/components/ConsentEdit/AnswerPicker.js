@@ -1,4 +1,4 @@
-import { Icon, LEVELS } from "components/Consent";
+import { ConsentIcon, LEVELS } from "components/Consent";
 import IconSelect from 'components/shared/input/IconSelect';
 import styled from "styled-components";
 
@@ -15,7 +15,7 @@ const IconLabel = styled.label`
     font-style: italic;
 `
 
-const StyledIcon = styled(Icon)`
+const StyledIcon = styled(ConsentIcon)`
     height: 2rem;
 `
 
