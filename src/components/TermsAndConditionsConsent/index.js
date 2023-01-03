@@ -132,8 +132,8 @@ const TermsAndConditionsConsent = () => {
     return (
         <>
             <Container>
-                <span onClick={() => setShow(true)}>18+ Only</span>
-                <span onClick={() => setShowDataPolicy(true)}>data policy</span>
+                <span onClick={() => setShow(true)}>18+ and Terms</span>
+                <span onClick={() => setShowDataPolicy(true)}>Data Policy</span>
             </Container>
             <CustomModal 
                     isOpen={show}
