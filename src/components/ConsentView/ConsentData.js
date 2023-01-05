@@ -73,7 +73,7 @@ const ConsentData = ({data, className}) => {
                     direction={sortAnswer} 
                     setDirection={setSortAnswer} 
                 >
-                    Answer
+                    Color
                 </SortButton>
                 {/* <FilterButton onClick={() => setShowFilterSort(!showFilterSort)}>
                     <Icon src={require('./filter.png')} alt='sort/filter' />

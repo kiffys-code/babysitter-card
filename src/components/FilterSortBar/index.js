@@ -53,7 +53,7 @@ const FilterSortBar = ({availableConsents=[], setConsents, className}) => {
                 direction={sortAnswer} 
                 setDirection={setSortAnswer} 
             >
-                Answer
+                Color
             </SortButton>
             <ClearButton onClick={handleClear}>
                 Clear <Icon src={require('assets/img/close.png')} alt='close' />
