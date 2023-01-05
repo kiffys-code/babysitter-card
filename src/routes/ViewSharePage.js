@@ -46,6 +46,12 @@ const StyledConsentData = styled(ConsentData)`
     border-radius: 10px;
 `
 
+const StyledMenuContainer = styled(MenuContainer)`
+    @media print {
+        display: none;
+    }
+`
+
 const ViewSharePage = () => {
 
     const {urlData} = useLoaderData();
@@ -70,13 +76,13 @@ const ViewSharePage = () => {
             <ShareDate id='share-date'>Shared {elapsed} ago</ShareDate>
             <WarningDetail id='warning-detail'>Current details must be clarified before any play session!</WarningDetail>
             {data ? <StyledConsentData {...{data}}  /> : null }
-            <MenuContainer>
+            <StyledMenuContainer>
                 <Link to='/'>
                     <RoundedButton>
                         <Icon src={require('assets/img/home.png')} alt='home'/>
                     </RoundedButton>
                 </Link>
-            </MenuContainer>
+            </StyledMenuContainer>
         </WarningContainer>
     </>
 
