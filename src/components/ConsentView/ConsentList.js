@@ -7,20 +7,14 @@ const Container = styled.div`
     padding: 1rem 0.5rem;
 `
 
-const NewConsentsMessage = styled.p`
-    text-align: center;
-    font-style: italic;
-    font-size: 1rem;
-`
-
 const ConsentList = ({consents, className}) => {
 
-    const renderedConsents = consents && consents.length > 0 ? consents.map((item, index) => 
+    const renderedConsents = consents && consents.length > 0 && consents.map((item, index) => 
         <ConsentListItem 
             consent={item}
             key={index}
         />
-    ) : <NewConsentsMessage>Click the Edit Icon to Begin!</NewConsentsMessage>;
+    );
 
     return (
         <Container className={className}>

@@ -2,9 +2,10 @@ import NameTag from "components/NameTag";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ConsentList from "./ConsentList";
-import FilterSortBar, { gyrSort } from "../FilterSortBar";
-import RoundedButton from "components/shared/RoundedButton";
-import Icon from "components/shared/Icon";
+// import FilterSortBar, { gyrSort } from "../FilterSortBar";
+import { gyrSort } from "../FilterSortBar";
+// import RoundedButton from "components/shared/RoundedButton";
+// import Icon from "components/shared/Icon";
 import SortButton, { DIRECTION, directionSortFunction } from "components/FilterSortBar/SortButton";
 
 const Container = styled.div`
@@ -26,26 +27,26 @@ const ConsentListHeader = styled.div`
     padding: 0.5rem;
 `
 
-const FilterButton = styled(RoundedButton)`
-    height: 3em;
-    width: 3em;
+// const FilterButton = styled(RoundedButton)`
+//     height: 3em;
+//     width: 3em;
 
-    & img {
-        height: 1.5em;
-        width: 1.5em; 
-    }
-`
+//     & img {
+//         height: 1.5em;
+//         width: 1.5em; 
+//     }
+// `
 
-// Instead of not rendering the component, 
-// we hide visually so it keeps its state
-const SortBarContainer = styled.div`
-    padding: 0 0.5rem;
-    display: ${({show}) => show ? 'inherit' : 'none'};
-`
+// // Instead of not rendering the component, 
+// // we hide visually so it keeps its state
+// const SortBarContainer = styled.div`
+//     padding: 0 0.5rem;
+//     display: ${({show}) => show ? 'inherit' : 'none'};
+// `
 
-const StyledFilterSortBar = styled(FilterSortBar)`
-    width: 100%;
-`
+// const StyledFilterSortBar = styled(FilterSortBar)`
+//     width: 100%;
+// `
 
 const ConsentData = ({data, className}) => {
 
@@ -64,28 +65,33 @@ const ConsentData = ({data, className}) => {
         }
     }, [consents, setSortedConsents, sortAnswer])
 
+    const renderedConsents = sortedConsents && sortedConsents.length > 0 ? 
+        <>
+            <ConsentListHeader>
+                    <h2>Consent Guide</h2>
+                    <SortButton 
+                        direction={sortAnswer} 
+                        setDirection={setSortAnswer} 
+                    >
+                        Color
+                    </SortButton>
+                    {/* <FilterButton onClick={() => setShowFilterSort(!showFilterSort)}>
+                        <Icon src={require('./filter.png')} alt='sort/filter' />
+                    </FilterButton> */}
+                </ConsentListHeader>
+                {/* <SortBarContainer show={showFilterSort}>
+                    <StyledFilterSortBar {...{
+                        availableConsents: consents, 
+                        setConsents: setSortedConsents
+                    }}/>
+                </SortBarContainer> */}
+                <StyledConsentList {...{consents: sortedConsents}} />
+        </> : null;
+
     return (
         <Container id='consent-data' className={className} >
             <NameTag {...{name, playAge, pronouns, audience}} />
-            <ConsentListHeader>
-                <h2>Consent Guide</h2>
-                <SortButton 
-                    direction={sortAnswer} 
-                    setDirection={setSortAnswer} 
-                >
-                    Color
-                </SortButton>
-                {/* <FilterButton onClick={() => setShowFilterSort(!showFilterSort)}>
-                    <Icon src={require('./filter.png')} alt='sort/filter' />
-                </FilterButton> */}
-            </ConsentListHeader>
-            {/* <SortBarContainer show={showFilterSort}>
-                <StyledFilterSortBar {...{
-                    availableConsents: consents, 
-                    setConsents: setSortedConsents
-                }}/>
-            </SortBarContainer> */}
-            <StyledConsentList {...{consents: sortedConsents}} />
+            {renderedConsents}
         </Container>
     )
 }
