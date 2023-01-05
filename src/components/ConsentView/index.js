@@ -21,6 +21,12 @@ const NoData = styled.div`
     text-align: center;
 `
 
+const StyledMenuContainer = styled(MenuContainer)`
+    @media print {
+        display: none;
+    }
+`
+
 const ConsentView = ({data}) => {
 
     console.log({data})
@@ -31,9 +37,9 @@ const ConsentView = ({data}) => {
                 ? <StyledConsentData {...{data}} />
                 : <NoData><div>Ready to start? <Link to='/change' >Click Here</Link>, or the menu icon to begin!</div></NoData>
             }
-            <MenuContainer>
+            <StyledMenuContainer>
                 <HamburgerMenu {...{data}} />
-            </MenuContainer>
+            </StyledMenuContainer>
         </Container>
     )
 }

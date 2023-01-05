@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
 import TermsAndConditionsConsent from "components/TermsAndConditionsConsent";
+import Legend from "components/Legend";
 
 const App = styled.div`
     display: flex;
@@ -15,10 +16,27 @@ const App = styled.div`
 const Content = styled.div`
     flex: 1 0 0;
     overflow: hidden;
+
+    @media print {
+        overflow: visible;
+    }
 `
 
 const FooterContent = styled.div`
     padding: 0.5rem 0;
+
+    @media print {
+        display: none;
+    }
+`
+
+const StyledLegend = styled(Legend)`
+    display: none;
+
+    @media print {
+        display: block;
+        padding-top: 5rem;
+    }
 `
 
 const Root = () => {
@@ -32,6 +50,7 @@ const Root = () => {
                 <Footer id='footer'/>
                 <TermsAndConditionsConsent id='adult-consent' />
             </FooterContent>
+            <StyledLegend />
         </App>
     );
 }

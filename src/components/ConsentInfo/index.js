@@ -22,10 +22,10 @@ const Container = styled.div`
     }
 
 `
-const ConsentInfo = ({level, onClick}) => {
+const ConsentInfo = ({level, onClick, className}) => {
 
     return (
-        <Container onClick={onClick} >
+        <Container onClick={onClick} className={className} >
             <ConsentIcon level={level}/>
             <div>
                 <h2 className="value">{level.value}</h2>

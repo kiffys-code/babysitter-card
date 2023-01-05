@@ -11,12 +11,13 @@ import SortButton, { DIRECTION, directionSortFunction } from "components/FilterS
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    // overflow: hidden;
     overflow: auto;
+    @media print {
+        overflow: visible;
+    }
 `
 
 const StyledConsentList = styled(ConsentList)`
-    // overflow: auto;
     padding: 0.25rem 0.5rem;
 `
 
@@ -48,6 +49,12 @@ const ConsentListHeader = styled.div`
 //     width: 100%;
 // `
 
+const StyledSortButton = styled(SortButton)`
+    @media print {
+        display: none;
+    }
+`
+
 const ConsentData = ({data, className}) => {
 
     const {name, playAge, consents=[], pronouns, audience} = data;
@@ -69,12 +76,12 @@ const ConsentData = ({data, className}) => {
         <>
             <ConsentListHeader>
                     <h2>Consent Guide</h2>
-                    <SortButton 
+                    <StyledSortButton 
                         direction={sortAnswer} 
                         setDirection={setSortAnswer} 
                     >
                         Color
-                    </SortButton>
+                    </StyledSortButton>
                     {/* <FilterButton onClick={() => setShowFilterSort(!showFilterSort)}>
                         <Icon src={require('./filter.png')} alt='sort/filter' />
                     </FilterButton> */}
