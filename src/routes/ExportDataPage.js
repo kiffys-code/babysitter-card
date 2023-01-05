@@ -4,7 +4,14 @@ import StyledModal from "components/StyledModal";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { encode } from "util/data-utils";
 import {useState, useEffect} from 'react';
+import styled from "styled-components";
 
+const PrintInstead = styled.div`
+    margin-top: 2rem;
+    text-align: center;
+    text-decoration: underline;
+    font-style: italic;
+`
 
 const ExportDataPage = () => {
 
@@ -24,6 +31,13 @@ const ExportDataPage = () => {
         navigate('/');
     }
 
+    const onPrintClick = () => {
+        handleClose();
+        setTimeout(() => {
+            window.print();
+        }, 300)
+    }
+
     return (
         <>
             <ConsentView {...{data}} /> 
@@ -33,6 +47,7 @@ const ExportDataPage = () => {
                 closeModal={handleClose}
             >
                 <CopyToClipboard text={shareUrl} />
+                <PrintInstead onClick={onPrintClick}>(Or print instead)</PrintInstead>
             </StyledModal>
         </>
     )
