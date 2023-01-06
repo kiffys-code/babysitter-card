@@ -44,6 +44,7 @@ const StyledConsentData = styled(ConsentData)`
     padding-top: 1rem;
     flex: 1 1 auto;
     border-radius: 10px;
+    overflow: auto;
 `
 
 const StyledMenuContainer = styled(MenuContainer)`

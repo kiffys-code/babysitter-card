@@ -11,7 +11,7 @@ import SortButton, { DIRECTION, directionSortFunction } from "components/FilterS
 const Container = styled.div`
     display: flex;
     flex-direction: column;
-    overflow: auto;
+
     @media print {
         overflow: visible;
     }

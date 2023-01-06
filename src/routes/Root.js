@@ -15,7 +15,6 @@ const App = styled.div`
 
 const Content = styled.div`
     flex: 1 0 0;
-    overflow: hidden;
 
     @media print {
         overflow: visible;
