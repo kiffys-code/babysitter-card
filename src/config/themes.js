@@ -18,9 +18,18 @@ const themes = {
     },
     purple: {
         label: 'Purple',
-        primary: '#bdb2ff'
+        primary: '#cfc2ff'
     }
 };
+
+export const defaultValues = {
+    background: '#333',
+    globalColors: {
+        primary: '#5cb3ed',
+        secondary: '#666',
+        warn: '#c41f30'
+    }
+}
 
 export const defaultTheme = 'blue';
 
