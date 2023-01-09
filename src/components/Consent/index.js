@@ -10,7 +10,7 @@ const LEVELS = {
     yellow: {
         value: 'Yellow',
         explanation: 'Please ask first!',
-        image: require('./question.png'),
+        image: require('./yellow.png'),
         color: ''
     },
     red: {

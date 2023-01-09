@@ -43,9 +43,6 @@ const Attributions = () => {
             <Link href="https://www.flaticon.com/free-icons/heart" title="heart icons">
                 Heart icons created by Kiranshastry - Flaticon
             </Link>
-            <Link href="https://www.flaticon.com/free-icons/question" title="question icons">
-                Question icons created by Roundicons - Flaticon
-            </Link>
             <Link href="https://www.flaticon.com/free-icons/trash-can" title="trash can icons">
                 Trash can icons created by IYAHICON - Flaticon
             </Link>
@@ -57,6 +54,7 @@ const Attributions = () => {
             <Link href="https://www.flaticon.com/free-icons/filter" title="filter icons">Filter icons created by Kiranshastry - Flaticon</Link>
             <Link href="https://www.flaticon.com/free-icons/sort" title="sort icons">Sort icons created by Dave Gandy - Flaticon</Link>
             <Link href="https://www.flaticon.com/free-icons/down-arrow" title="down-arrow icons">Down-arrow icons created by Dave Gandy - Flaticon</Link>
+            <Link href="https://www.flaticon.com/free-icons/stop" title="stop icons">Stop icons created by Freepik - Flaticon</Link>
         </Container>
     )
 }
