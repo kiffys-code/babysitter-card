@@ -40,10 +40,15 @@ const StyledModal = (props) => {
 
     const {children, closeModal, title} = props;
 
+    const beforeOpen = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <CustomModal {...props} 
             onBackgroundClick={closeModal}
-            onEscapeKeydown={closeModal}
+            onEscapeKeydown={closeModal} 
+            beforeOpen={beforeOpen}
             id='custom-modal'
         >
             <HeaderContainer id='custom-modal-header'>
