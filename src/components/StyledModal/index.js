@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Modal from "styled-react-modal";
 
 const CustomModal = Modal.styled`
+    position: sticky;
     background: #fff;
     padding: 1rem;
     margin: 1rem;
@@ -40,15 +41,10 @@ const StyledModal = (props) => {
 
     const {children, closeModal, title} = props;
 
-    const beforeOpen = () => {
-        window.scrollTo(0, 0);
-    }
-
     return (
         <CustomModal {...props} 
             onBackgroundClick={closeModal}
             onEscapeKeydown={closeModal} 
-            beforeOpen={beforeOpen}
             id='custom-modal'
         >
             <HeaderContainer id='custom-modal-header'>
