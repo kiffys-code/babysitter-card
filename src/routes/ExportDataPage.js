@@ -59,7 +59,7 @@ const ExportDataPage = () => {
             .catch((err) => {
                 console.log(err)
             })
-        }, 1)
+        }, 300)
     }
 
     return (
