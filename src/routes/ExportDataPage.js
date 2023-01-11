@@ -38,7 +38,7 @@ const ExportDataPage = () => {
         handleClose();
         setTimeout(() => {
             window.print();
-        }, 300)
+        }, 1)
     }
 
     const onImageShareClick = () => {
@@ -59,7 +59,7 @@ const ExportDataPage = () => {
             .catch((err) => {
                 console.log(err)
             })
-        }, 300)
+        }, 1)
     }
 
     return (
