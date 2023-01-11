@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { toPng } from 'html-to-image';
 import { themeDefaultValues } from "config/themes";
 import { rootNode } from "index";
+import html2canvas from "html2canvas";
 
 const PrintInstead = styled.div`
     margin-top: 2rem;
@@ -44,22 +45,33 @@ const ExportDataPage = () => {
     const onImageShareClick = () => {
         handleClose();
         setTimeout(() => {
-            toPng(rootNode, { 
-                cacheBust: true, 
+            // toPng(rootNode, { 
+            //     cacheBust: true, 
+            //     backgroundColor: themeDefaultValues.background,
+            //     height: document.body.scrollHeight,
+            //     width: window.visualViewport.width
+            // })
+            // .then((dataUrl) => {
+            //     const link = document.createElement('a')
+            //     link.download = `${data.name}-${new Date().toISOString()}-consents.png`
+            //     link.href = dataUrl
+            //     link.click()
+            // })
+            html2canvas(rootNode, {
                 backgroundColor: themeDefaultValues.background,
                 height: document.body.scrollHeight,
                 width: window.visualViewport.width
             })
-            .then((dataUrl) => {
+            .then((canvas) => {
                 const link = document.createElement('a')
-                link.download = 'my-image-name.png'
-                link.href = dataUrl
+                link.download = `${data.name}-${new Date().toISOString()}-consents.png`
+                link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
                 link.click()
             })
             .catch((err) => {
                 console.log(err)
             })
-        }, 300)
+        }, 1)
     }
 
     return (
