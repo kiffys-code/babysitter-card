@@ -55,6 +55,8 @@ const Attributions = () => {
             <Link href="https://www.flaticon.com/free-icons/sort" title="sort icons">Sort icons created by Dave Gandy - Flaticon</Link>
             <Link href="https://www.flaticon.com/free-icons/down-arrow" title="down-arrow icons">Down-arrow icons created by Dave Gandy - Flaticon</Link>
             <Link href="https://www.flaticon.com/free-icons/stop" title="stop icons">Stop icons created by Freepik - Flaticon</Link>
+            <a href="https://www.flaticon.com/free-icons/print" title="print icons">Print icons created by Freepik - Flaticon</a>
+            <a href="https://www.flaticon.com/free-icons/image-comics" title="Image Comics icons">Image Comics icons created by Freepik - Flaticon</a>
         </Container>
     )
 }

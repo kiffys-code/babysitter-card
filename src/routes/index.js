@@ -4,7 +4,7 @@ import ConsentViewPage from "./ConsentViewPage";
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import { getConsentPreferences } from "config/storage";
-import ViewSharePage from "./ViewSharePage";
+// import ViewSharePage from "./ViewSharePage";
 import ExportDataPage from "./ExportDataPage";
 import AdultOnlyPage from "./AdultOnlyPage";
 
@@ -13,11 +13,11 @@ const loader = async () => {
     return {data};
 }
 
-const importLoader = async ({request}) => {
-    const storedData = getConsentPreferences() || {};
-    const urlData = new URL(request.url).searchParams.get('data')
-    return {storedData, urlData};
-}
+// const importLoader = async ({request}) => {
+//     const storedData = getConsentPreferences() || {};
+//     const urlData = new URL(request.url).searchParams.get('data')
+//     return {storedData, urlData};
+// }
 
 const router = createHashRouter([
     {
@@ -35,11 +35,11 @@ const router = createHashRouter([
                 element: <ConsentChangePage />,
                 loader: loader
             }, 
-            {
-                path: '/view',
-                element: <ViewSharePage />,
-                loader: importLoader
-            },
+            // {
+            //     path: '/view',
+            //     element: <ViewSharePage />,
+            //     loader: importLoader
+            // },
             // {
             //     path: '/import',
             //     element: <ImportDataPage />,
