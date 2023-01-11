@@ -1,5 +1,8 @@
+import { DIRECTION } from "components/FilterSortBar/SortButton";
+
 export const STORAGE_KEY = 'consentPreferences';
 export const ADULT_KEY = 'isAdult';
+export const GYR_SORT_KEY = 'gyrSort';
 
 export const getConsentPreferences = () => {
     try{
@@ -35,6 +38,24 @@ export const setIsAdult = (val) => {
         localStorage.setItem(ADULT_KEY, val);
     } catch (e) {
         console.error('could not overwrite adult consent 18+ data', e);
+    }
+}
+
+export const getGyrSort = () => {
+    try{
+        const val = localStorage.getItem(GYR_SORT_KEY);
+        return val;
+    } catch (e) {
+        console.error('could not parse green-yellow-red sort data', e);
+        return DIRECTION.ASC;
+    }
+}
+
+export const setGyrSort = (val) => {
+    try{
+        localStorage.setItem(GYR_SORT_KEY, val);
+    } catch (e) {
+        console.error('could not set green-yellow-red sort data', e);
     }
 }
 

@@ -7,6 +7,7 @@ import { gyrSort } from "../FilterSortBar";
 // import RoundedButton from "components/shared/RoundedButton";
 // import Icon from "components/shared/Icon";
 import SortButton, { DIRECTION, directionSortFunction } from "components/FilterSortBar/SortButton";
+import { getGyrSort, setGyrSort } from "config/storage";
 
 const Container = styled.div`
     display: flex;
@@ -61,7 +62,12 @@ const ConsentData = ({data, className}) => {
 
     const [sortedConsents, setSortedConsents] = useState(consents || []);
     // const [showFilterSort, setShowFilterSort] = useState(false);
-    const [sortAnswer, setSortAnswer] = useState(DIRECTION.ASC);
+    const [sortAnswer, setSortAnswer] = useState(getGyrSort() || DIRECTION.ASC);
+
+    const handleSetSortAnswer = (direction) => {
+        setSortAnswer(direction);
+        setGyrSort(direction);
+    }
 
     useEffect(() => {
         if(consents && consents.length > 0) {
@@ -77,8 +83,8 @@ const ConsentData = ({data, className}) => {
             <ConsentListHeader>
                     <h2>Consent Guide</h2>
                     <StyledSortButton 
-                        direction={sortAnswer} 
-                        setDirection={setSortAnswer} 
+                        direction={ sortAnswer} 
+                        setDirection={handleSetSortAnswer} 
                     >
                         Color
                     </StyledSortButton>

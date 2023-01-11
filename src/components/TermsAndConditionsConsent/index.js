@@ -2,7 +2,7 @@ import Button from "components/shared/Button";
 import StyledModal from "components/StyledModal";
 import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { getIsAdult, revokeAllData, setIsAdult, ADULT_KEY, STORAGE_KEY } from "config/storage";
+import { getIsAdult, revokeAllData, setIsAdult, ADULT_KEY, STORAGE_KEY, GYR_SORT_KEY } from "config/storage";
 import { useState } from "react";
 
 const Container = styled.div`
@@ -197,6 +197,10 @@ const TermsAndConditionsConsent = () => {
                                 <tr>
                                     <td>{STORAGE_KEY}</td>
                                     <td>All your kink information for this app (name, pronouns, consent items, etc).</td>
+                                </tr>
+                                <tr>
+                                    <td>{GYR_SORT_KEY}</td>
+                                    <td>Sort direction when viewing green-yellow-red kink information</td>
                                 </tr>
                             </tbody>
                         </Table>
