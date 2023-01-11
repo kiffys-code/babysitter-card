@@ -5,6 +5,9 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import { encode } from "util/data-utils";
 import {useState, useEffect} from 'react';
 import styled from "styled-components";
+import { toPng } from 'html-to-image';
+import { themeDefaultValues } from "config/themes";
+import { rootNode } from "index";
 
 const PrintInstead = styled.div`
     margin-top: 2rem;
@@ -38,6 +41,27 @@ const ExportDataPage = () => {
         }, 300)
     }
 
+    const onImageShareClick = () => {
+        handleClose();
+        setTimeout(() => {
+            toPng(rootNode, { 
+                cacheBust: true, 
+                backgroundColor: themeDefaultValues.background,
+                height: document.body.scrollHeight,
+                width: window.visualViewport.width
+            })
+            .then((dataUrl) => {
+                const link = document.createElement('a')
+                link.download = 'my-image-name.png'
+                link.href = dataUrl
+                link.click()
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }, 300)
+    }
+
     return (
         <>
             <ConsentView {...{data}} /> 
@@ -48,6 +72,8 @@ const ExportDataPage = () => {
             >
                 <CopyToClipboard text={shareUrl} />
                 <PrintInstead onClick={onPrintClick}>(Or print instead)</PrintInstead>
+                <PrintInstead onClick={onImageShareClick}>(Or image instead)</PrintInstead>
+
             </StyledModal>
         </>
     )

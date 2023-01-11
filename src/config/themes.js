@@ -22,7 +22,7 @@ const themes = {
     }
 };
 
-export const defaultValues = {
+export const themeDefaultValues = {
     background: '#333',
     globalColors: {
         primary: '#5cb3ed',

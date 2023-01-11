@@ -45,8 +45,8 @@ const GlobalStyles = createGlobalStyle`
   }
   
 `;
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export const rootNode = document.getElementById('root');
+const root = ReactDOM.createRoot(rootNode);
 root.render(
   <React.StrictMode>
     <GlobalStyles />

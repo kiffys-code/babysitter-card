@@ -1,12 +1,12 @@
 import { useState } from "react"
 import { ThemeProvider } from "styled-components"
-import themes, { defaultTheme, defaultValues } from "config/themes"
+import themes, { defaultTheme, themeDefaultValues } from "config/themes"
 import { ThemeContext } from "config/context"
 import { getConsentPreferences } from "config/storage"
 
 const chosenTheme = (name) => {
     return {
-        ...defaultValues, 
+        ...themeDefaultValues, 
         text: themes[name]?.primary,
         ...themes[name]
     }
