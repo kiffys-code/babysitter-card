@@ -63,14 +63,15 @@ const ExportDataView = ({data}) => {
     }
 
     const onImageShareClick = () => {
-        handleClose();
+        // handleClose();
         setTimeout(() => {
             html2canvas(rootNode, {
                 scrollX: 0,
                 scrollY: 0,
                 backgroundColor: themeDefaultValues.background,
                 height: document.body.scrollHeight,
-                width: window.visualViewport.width
+                width: window.visualViewport.width,
+                ignoreElements: elem => elem.className.includes('BaseModalBackground')
             })
             .then((canvas) => {
                 const link = document.createElement('a')
