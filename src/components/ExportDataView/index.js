@@ -63,7 +63,6 @@ const ExportDataView = ({data}) => {
     }
 
     const onImageShareClick = () => {
-        // handleClose();
         setTimeout(() => {
             html2canvas(rootNode, {
                 scrollX: 0,
@@ -71,7 +70,7 @@ const ExportDataView = ({data}) => {
                 backgroundColor: themeDefaultValues.background,
                 height: document.body.scrollHeight,
                 width: window.visualViewport.width,
-                ignoreElements: elem => elem.className.includes('BaseModalBackground')
+                ignoreElements: elem => elem.className.includes('BaseModalBackground') // ignore the modal and its screen-eating overlay c:
             })
             .then((canvas) => {
                 const link = document.createElement('a')
