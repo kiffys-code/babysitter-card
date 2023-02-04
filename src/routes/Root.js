@@ -42,14 +42,15 @@ const Root = () => {
 
     return (
         <App id='app' >
-            <Content id='content'>
+            <Outlet />
+            {/* <Content id='content'>
                 <Outlet />
             </Content>
             <FooterContent>
                 <Footer id='footer'/>
                 <TermsAndConditionsConsent id='adult-consent' />
             </FooterContent>
-            <StyledLegend />
+            <StyledLegend /> */}
         </App>
     );
 }

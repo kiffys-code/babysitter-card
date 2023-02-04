@@ -1,7 +1,7 @@
 import Icon from "components/shared/Icon";
 import RoundedButton from "components/shared/RoundedButton";
-import { CircleMenu } from "react-circular-menu";
-import { CircleMenuItem } from "react-circular-menu/dist/CircleMenuItem/CircleMenuItem";
+// import { CircleMenu } from "react-circular-menu";
+// import { CircleMenuItem } from "react-circular-menu/dist/CircleMenuItem/CircleMenuItem";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -47,7 +47,9 @@ const HamburgerMenu = () => {
 
     return (
         <Container>
-            <CircleMenu
+            {/* Workaround to prevent clicking too soon on 
+                last item as it rolls up */}
+            {/* <CircleMenu
                 startAngle={15}
                 rotationAngle={120}
                 itemSize={2} // dimension, not child count
@@ -70,10 +72,8 @@ const HamburgerMenu = () => {
                         </RoundedButton>
                     </Link>
                 </CircleMenuItem>
-                {/* Workaround to prevent clicking too soon on 
-                last item as it rolls up */}
                 <div className='invisible' />
-            </CircleMenu>
+            </CircleMenu> */}
         </Container>
     )
 }
