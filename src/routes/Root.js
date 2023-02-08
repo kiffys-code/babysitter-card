@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
-import TermsAndConditionsConsent from "components/TermsAndConditionsConsent";
 import Legend from "components/Legend";
 
 const App = styled.div`
@@ -15,6 +14,8 @@ const App = styled.div`
 
 const Content = styled.div`
     flex: 1 0 0;
+    padding: 1.5rem 1rem;
+    padding-bottom: 0;
 
     @media print {
         overflow: visible;
@@ -42,15 +43,13 @@ const Root = () => {
 
     return (
         <App id='app' >
-            <Outlet />
-            {/* <Content id='content'>
+            <Content id='content'>
                 <Outlet />
             </Content>
             <FooterContent>
                 <Footer id='footer'/>
-                <TermsAndConditionsConsent id='adult-consent' />
             </FooterContent>
-            <StyledLegend /> */}
+            <StyledLegend />
         </App>
     );
 }

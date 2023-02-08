@@ -1,15 +1,14 @@
 import { render } from '@testing-library/react';
 import ThemeWrapper from 'components/ThemeWrapper';
 import GlobalStyles from 'config/globalStyles';
-import AppRoutes from 'routes';
 import { ModalProvider } from 'styled-react-modal';
 
-const Wrapper = () => (
+const Wrapper = ({children}) => (
     <>
         <GlobalStyles />
         <ModalProvider>
             <ThemeWrapper>
-                <AppRoutes />
+                {children}
             </ThemeWrapper>
         </ModalProvider>
     </>

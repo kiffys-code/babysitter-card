@@ -19,6 +19,11 @@ const NoData = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 1rem;
+
+    h1 {
+        font-size: 1.5rem;
+    }
 `
 
 const StyledMenuContainer = styled(MenuContainer)`
@@ -29,13 +34,12 @@ const StyledMenuContainer = styled(MenuContainer)`
 
 const ConsentView = ({data}) => {
 
-    console.log({data})
     return (
         <Container>
             {
                 Object.keys(data).length > 0
                 ? <StyledConsentData {...{data}} />
-                : <NoData><div>Ready to start? <Link to='/change' >Click Here</Link>, or the menu icon to begin!</div></NoData>
+                : <NoData><h1>Ready to start?<br /><Link to='/change' >Click Here</Link>, or the menu icon to begin!</h1></NoData>
             }
             <StyledMenuContainer>
                 <HamburgerMenu {...{data}} />

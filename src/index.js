@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { ModalProvider } from 'styled-react-modal';
 import ThemeWrapper from 'components/ThemeWrapper';
-import AppRoutes from 'routes';
-import GlobalStyles from 'config/globalStyles';
+import { routeConfig } from 'routes';
+import GlobalStyles from 'config/GlobalStyles';
+import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,7 +12,7 @@ root.render(
     <GlobalStyles />
     <ModalProvider>
       <ThemeWrapper>
-        <AppRoutes />
+        <RouterProvider router={createHashRouter(routeConfig)} />
       </ThemeWrapper>
     </ModalProvider>
   </React.StrictMode>
