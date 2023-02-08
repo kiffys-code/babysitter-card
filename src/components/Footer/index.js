@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled.ul`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -12,23 +12,37 @@ const Container = styled.div`
     }
 `
 
+const ListItem = ({to, children}) => {
+    return (
+        <li>
+            <Link to={to}>
+                {children}
+            </Link>
+        </li>
+    )
+}
+
 const Footer = ({className}) => {
 
     return (
-        <Container className={className}>
-            <Link to={'/attributions'} >
-                Attributions
-            </Link>
-            <Link to={'/about'}>
-                About
-            </Link>
-            <Link to={'/adult-policy'}>
-                18+ Policy
-            </Link>
-            <Link to={'/data-policy'}>
-                Data Policy
-            </Link>
-        </Container>
+        <footer>
+            <nav aria-label='secondary'>
+                <Container className={className} >
+                    <ListItem to={'/attributions'} >
+                        Attributions
+                    </ListItem>
+                    <ListItem to={'/about'}>
+                        About
+                    </ListItem>
+                    <ListItem to={'/adult-policy'}>
+                        18+ Policy
+                    </ListItem>
+                    <ListItem to={'/data-policy'}>
+                        Data Policy
+                    </ListItem>
+                </Container>
+            </nav>
+        </footer>
     )
 }
 
