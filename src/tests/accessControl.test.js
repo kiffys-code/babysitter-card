@@ -10,9 +10,7 @@ describe('18+ Access', () => {
 
         // When rendered
         const router = createMemoryRouter(routeConfig);
-        render(
-            <RouterProvider router={router} />
-        );
+        render(<RouterProvider router={router} />)
 
         // Then the 18+ Modal is rendered
         const adultPage = await screen.findByRole('heading', {name: /18\+ only/i});
@@ -30,8 +28,8 @@ describe('18+ Access', () => {
         render(<RouterProvider router={router} />)
 
         // Then the main page is shown
-        const mainPage = screen.queryByRole('heading', {name: /ready to begin/i})
-        expect(mainPage).not.toBeInTheDocument();
+        const mainPage = await screen.findByRole('heading', {name: /ready to start/i})
+        expect(mainPage).toBeInTheDocument();
 
     })
 
@@ -39,7 +37,6 @@ describe('18+ Access', () => {
         
         // When rendered
         const user = userEvent.setup();
-        // When rendered
         const router = createMemoryRouter(routeConfig);
         render(<RouterProvider router={router} />)
 
@@ -61,7 +58,6 @@ describe('18+ Access', () => {
         
         // When rendered
         const user = userEvent.setup();
-        // When rendered
         const router = createMemoryRouter(routeConfig);
         render(<RouterProvider router={router} />)
 
@@ -83,7 +79,6 @@ describe('18+ Access', () => {
 
         // When rendered
         const user = userEvent.setup();
-        // When rendered
         const router = createMemoryRouter(routeConfig);
         render(<RouterProvider router={router} />)
 
@@ -104,7 +99,6 @@ describe('18+ Access', () => {
 
         // When rendered
         const user = userEvent.setup();
-        // When rendered
         const router = createMemoryRouter(routeConfig);
         render(<RouterProvider router={router} />)
 
@@ -129,17 +123,35 @@ describe('18+ Access', () => {
 
 })
 
-// describe('GDPR', () => {
-//     test('when the app is first opened, the gdpr data policy can be viewed', () => {
-//         throw new Error('to do');
+describe('GDPR', () => {
+
+    test('the user can clear their device data, even when they have declined 18+', async () => {
         
-//     })
-//     test('the gdpr policy can be viewed anytime', () => {
-//         throw new Error('to do');
+        // Given the adult policy has been declined and some data exists on their localstorage (for the app's domain)
+        localStorage.setItem(ADULT_KEY, false);
+        localStorage.setItem('someArbitraryItem', "whoopsidaisy!");
+        expect(localStorage.length).toBe(2);
 
-//     })
-//     test('the user can clear their device data', () => {
-//         throw new Error('to do');
+        // When rendered at the blocking page
+        const user = userEvent.setup();
+        const router = createMemoryRouter(routeConfig, {initialEntries: ['/adult-policy/declined']});
+        render(<RouterProvider router={router} />)
 
-//     })
-// })
+        // The user can navigate to the data policy page
+        const dataPolicyLink = await screen.findByRole('link', {name: /data policy/i});
+        await user.click(dataPolicyLink);
+
+        const dataPolicyPage = await screen.findByRole('heading', {name: /data policy/i});
+        expect(dataPolicyPage).toBeInTheDocument();
+
+        // And they can delete their local data
+        const deleteDataButton = screen.getByRole('button', {name: /delete my data/i});
+        await user.click(deleteDataButton);
+
+        // And they are redirected and their data is deleted
+        const deleteSuccessPage = await screen.findByRole('heading', {name: /Your data has been successfully removed from this device/i});
+        expect(deleteSuccessPage).toBeInTheDocument();
+        expect(localStorage.length).toBe(0);
+
+    })
+})
