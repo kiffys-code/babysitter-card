@@ -1,5 +1,3 @@
-import HamburgerMenu from "components/HamburgerMenu";
-import MenuContainer from "components/shared/MenuContainer";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import ConsentData from "./ConsentData";
@@ -26,12 +24,6 @@ const NoData = styled.div`
     }
 `
 
-const StyledMenuContainer = styled(MenuContainer)`
-    @media print {
-        display: none;
-    }
-`
-
 const ConsentView = ({data}) => {
 
     return (
@@ -41,9 +33,6 @@ const ConsentView = ({data}) => {
                 ? <StyledConsentData {...{data}} />
                 : <NoData><h1>Ready to start?<br /><Link to='/change' >Click Here</Link>, or the menu icon to begin!</h1></NoData>
             }
-            <StyledMenuContainer>
-                <HamburgerMenu {...{data}} />
-            </StyledMenuContainer>
         </Container>
     )
 }

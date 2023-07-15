@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
 import Legend from "components/Legend";
+import HamburgerMenu from "components/HamburgerMenu";
+import MenuContainer from "components/shared/MenuContainer";
 
 const App = styled.div`
     display: flex;
@@ -39,10 +41,19 @@ const StyledLegend = styled(Legend)`
     }
 `
 
+const StyledMenuContainer = styled(MenuContainer)`
+    @media print {
+        display: none;
+    }
+`
+
 const Root = () => {
 
     return (
         <App id='app' >
+            <StyledMenuContainer>
+                <HamburgerMenu />
+            </StyledMenuContainer>
             <Content id='content'>
                 <Outlet />
             </Content>
