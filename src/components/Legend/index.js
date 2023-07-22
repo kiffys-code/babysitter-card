@@ -25,7 +25,7 @@ const StyledConsentInfo = styled(ConsentInfo)`
 const Legend = ({className}) => {
 
     const levels = Object.keys(LEVELS).map(level =>
-        <StyledConsentInfo level={LEVELS[level]} />  
+        <StyledConsentInfo key={level + "-legend-item"} level={LEVELS[level]} />  
     );
 
     return <Container className={className}>

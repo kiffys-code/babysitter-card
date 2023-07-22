@@ -1,8 +1,7 @@
 import Icon from "components/shared/Icon";
 import RoundedButton from "components/shared/RoundedButton";
-import { CircleMenu } from "react-circular-menu";
-import { CircleMenuItem } from "react-circular-menu/dist/CircleMenuItem/CircleMenuItem";
-import { Link } from "react-router-dom";
+import { CircleMenu, CircleMenuItem } from "react-circular-menu";
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const { useState } = require("react")
@@ -34,16 +33,34 @@ const HamburgerMenuButton = styled(RoundedButton)`
 `
 
 const HamburgerMenuToggle = ({show, onClick}) => {
-    return (
-        <HamburgerMenuButton show={show} onClick={onClick} >
-            <Icon src={require('assets/img/burger-bar.png')} alt='menu' />
-        </HamburgerMenuButton>
-    )
+
+    const location = useLocation();
+
+    if ( location.pathname === "/" || location.pathname === "/export" ) {
+        return (
+            <HamburgerMenuButton show={show} onClick={onClick} >
+                <Icon src={require('assets/img/burger-bar.png')} alt='menu' />
+            </HamburgerMenuButton>
+        )
+    } else {
+        return (
+            <Link to='/' >
+                <RoundedButton as='div'>
+                    <Icon src={require('assets/img/home.png')} alt='Home' />
+                </RoundedButton>
+            </Link>
+        )
+        
+    }
 }
 
 const HamburgerMenu = () => {
 
     const [show, setShow] = useState(false);
+
+    const close = () => {
+        setShow(false);
+    }
 
     return (
         <Container>
@@ -55,16 +72,17 @@ const HamburgerMenu = () => {
                 onMenuToggle={menuActive => setShow(menuActive)}
                 menuToggleElement={<HamburgerMenuToggle show={show} />}
                 className='circle-menu'
+                open={show}
             >
                 <CircleMenuItem tooltip="Change">
-                    <Link to='/change'>
+                    <Link to='/change' onClick={close}>
                         <RoundedButton as='div'>
                             <Icon src={require('assets/img/crayon.png')} alt='Change' />
                         </RoundedButton>
                     </Link>
                 </CircleMenuItem>
                 <CircleMenuItem tooltip="Share">
-                    <Link to='/export'>
+                    <Link to='/export' onClick={close}>
                         <RoundedButton as='div'>
                             <Icon src={require('assets/img/share.png')} alt='Share' />
                         </RoundedButton>

@@ -4,7 +4,6 @@ import Icon from "components/shared/Icon";
 import StyledModal from "components/StyledModal";
 import { themeDefaultValues } from "config/themes";
 import html2canvas from "html2canvas";
-import { rootNode } from "index";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -42,6 +41,7 @@ const ExportDataView = ({data}) => {
 
     // const [encoded, setEncoded] = useState();
     const navigate = useNavigate();
+    const rootNode = document.getElementById('root');
 
     // useEffect(() => {
     //     (async () => {

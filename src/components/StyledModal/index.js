@@ -32,9 +32,14 @@ const HeaderContainer = styled.div`
     }
 `
 
+const CloseButton = styled.button`
+    border: none;
+    background-color: transparent;
+`
+
 const CloseIcon = styled.img`
-    width: 2.2rem;
-    height: 2.2rem;
+    width: 1.2rem;
+    height: 1.2rem;
 `
 
 const StyledModal = (props) => {
@@ -49,7 +54,9 @@ const StyledModal = (props) => {
         >
             <HeaderContainer id='custom-modal-header'>
                 <h1 className='title'>{title}</h1>
-                <CloseIcon onClick={closeModal} className='close' src={require('assets/img/close.png')} alt='Close' />
+                <CloseButton onClick={closeModal} className='close'>
+                    <CloseIcon  src={require('assets/img/close.png')} alt='Close' />
+                </CloseButton>
             </HeaderContainer>
             {children}
         </CustomModal>

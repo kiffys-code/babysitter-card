@@ -59,7 +59,10 @@ const NegativeButton = styled(StyledButton)`
     background-color: ${({theme}) => theme.globalColors.warn};
 `
 
-const StyledLink = styled.span`
+const StyledLink = styled.button`
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
     color: ${({theme}) => theme.globalColors.primary};
 `
 
@@ -112,7 +115,7 @@ const TermsAndConditionsConsent = () => {
     }
 
     const handleClose = () => {
-        handleAccept();
+        handleDecline();
     }
 
     const handleAccept = () => {

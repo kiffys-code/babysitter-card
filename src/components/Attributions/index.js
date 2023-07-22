@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Link from "components/shared/Link";
+import { useRef } from "react";
+import useAccessiblePageLoad from "hooks/useAccessiblePageLoad";
 
 const Container = styled.div`
     display: flex;
@@ -14,8 +16,13 @@ const Container = styled.div`
 `
 
 const Attributions = () => {
+
+    const headingRef = useRef();
+    useAccessiblePageLoad({title: 'Attributions', headingRef});
+
     return (
         <Container>
+            <h1 ref={headingRef} tabIndex={0}>Attributions</h1>
             <div>
                 Copyright {new Date().getFullYear()}, Kiffy
             </div>

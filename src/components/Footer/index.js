@@ -1,10 +1,7 @@
-import { useState } from "react";
 import styled from "styled-components";
-import Attributions from "components/Attributions";
-import StyledModal from "components/StyledModal";
-import About from "components/About";
+import { Link } from "react-router-dom";
 
-const Container = styled.div`
+const Container = styled.ul`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -15,39 +12,37 @@ const Container = styled.div`
     }
 `
 
+const ListItem = ({to, children}) => {
+    return (
+        <li>
+            <Link to={to}>
+                {children}
+            </Link>
+        </li>
+    )
+}
+
 const Footer = ({className}) => {
 
-    const [showAttr, setShowAttr] = useState(false);
-    const [showAbout, setShowAbout] = useState(false);
-
     return (
-        <Container className={className}>
-            
-            <span 
-                onClick={() => setShowAttr(true)} 
-            >
-                Attributions
-            </span>
-            <span 
-                onClick={() => setShowAbout(true)} 
-            >
-                About
-            </span>
-            <StyledModal 
-                isOpen={showAttr}
-                closeModal={() => setShowAttr(false)}
-                title="Attributions"
-            >
-                <Attributions />
-            </StyledModal>
-            <StyledModal
-                isOpen={showAbout}
-                closeModal={() => setShowAbout(false)}
-                title="What Is This?"
-            >
-                <About />
-            </StyledModal>
-        </Container>
+        <footer>
+            <nav aria-label='secondary'>
+                <Container className={className} >
+                    <ListItem to={'/attributions'} >
+                        Attributions
+                    </ListItem>
+                    <ListItem to={'/about'}>
+                        About
+                    </ListItem>
+                    <ListItem to={'/adult-policy'}>
+                        18+ Policy
+                    </ListItem>
+                    <ListItem to={'/data-policy'}>
+                        Data Policy
+                    </ListItem>
+                </Container>
+            </nav>
+        </footer>
     )
 }
 

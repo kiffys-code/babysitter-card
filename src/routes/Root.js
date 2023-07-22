@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
-import TermsAndConditionsConsent from "components/TermsAndConditionsConsent";
 import Legend from "components/Legend";
+import HamburgerMenu from "components/HamburgerMenu";
+import MenuContainer from "components/shared/MenuContainer";
 
 const App = styled.div`
     display: flex;
@@ -15,6 +16,8 @@ const App = styled.div`
 
 const Content = styled.div`
     flex: 1 0 0;
+    padding: 1.5rem 1rem;
+    padding-bottom: 0;
 
     @media print {
         overflow: visible;
@@ -38,16 +41,24 @@ const StyledLegend = styled(Legend)`
     }
 `
 
+const StyledMenuContainer = styled(MenuContainer)`
+    @media print {
+        display: none;
+    }
+`
+
 const Root = () => {
 
     return (
         <App id='app' >
+            <StyledMenuContainer>
+                <HamburgerMenu />
+            </StyledMenuContainer>
             <Content id='content'>
                 <Outlet />
             </Content>
             <FooterContent>
                 <Footer id='footer'/>
-                <TermsAndConditionsConsent id='adult-consent' />
             </FooterContent>
             <StyledLegend />
         </App>
