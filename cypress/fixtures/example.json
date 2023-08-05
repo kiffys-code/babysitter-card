@@ -1,0 +1,14 @@
+{
+  "name": "Kiffy",
+  "playAge": "Toddler",
+  "pronouns": "she/her",
+  "audience": "testing library",
+  "theme": "purple",
+  "consents": [
+    {
+      "ask": "foo bar baz",
+      "answer": "yellow",
+      "_id": "f40e4721-eb77-403e-a009-ca82cdb2987e"
+    }
+  ]
+}
