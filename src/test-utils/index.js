@@ -1,9 +1,10 @@
-import { render } from '@testing-library/react';
 import ThemeWrapper from 'components/ThemeWrapper';
-import GlobalStyles from 'config/globalStyles';
+import GlobalStyles from 'config/GlobalStyles';
+import { RouterProvider, createMemoryRouter } from 'react-router';
+import { routeConfig } from 'routes';
 import { ModalProvider } from 'styled-react-modal';
 
-const Wrapper = ({children}) => (
+export const AppHarness = ({children}) => (
     <>
         <GlobalStyles />
         <ModalProvider>
@@ -14,13 +15,12 @@ const Wrapper = ({children}) => (
     </>
 )
 
-const customRender = (ui, options) => {
-    return render(ui, {
-        wrapper: Wrapper, 
-        ...options
-    });
+export const createAppAtRoute = (route) => {
+
+    const router = createMemoryRouter(routeConfig, {initialEntries: route ? [route] : ['/'] });
+    return (
+        <AppHarness>
+            <RouterProvider router={router} />
+        </AppHarness>
+    );
 }
-
-export * from '@testing-library/react';
-
-export {customRender as render};
