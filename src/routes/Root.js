@@ -1,9 +1,14 @@
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import Footer from "components/Footer";
 import { Outlet } from "react-router-dom";
 import Legend from "components/Legend";
 import HamburgerMenu from "components/HamburgerMenu";
 import MenuContainer from "components/shared/MenuContainer";
+import { useLocation } from "react-router-dom";
+import withOfflineFunctionality from "hooks/withOfflineFunctionality";
+import Button from "components/shared/Button";
+import env from "config/env";
 
 const App = styled.div`
     display: flex;
@@ -47,7 +52,21 @@ const StyledMenuContainer = styled(MenuContainer)`
     }
 `
 
-const Root = () => {
+const Root = ({appUpdatePending, doAppUpdate, message}) => {
+
+    const location = useLocation();
+    useEffect(() => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.ready.then((registration) => {
+                registration.update();
+            });
+        }
+    }, [location]);
+
+    console.log("App loaded with environment:");
+    console.log(env);
+    console.log({appUpdatePending});
+    console.log({message})
 
     return (
         <App id='app' >
@@ -59,10 +78,11 @@ const Root = () => {
             </Content>
             <FooterContent>
                 <Footer id='footer'/>
+                { appUpdatePending ? <Button onClick={doAppUpdate}>Update Available! Click to install</Button> : null}
             </FooterContent>
             <StyledLegend />
         </App>
     );
 }
 
-export default Root;
+export default withOfflineFunctionality(Root);
