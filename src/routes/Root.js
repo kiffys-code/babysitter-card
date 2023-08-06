@@ -64,7 +64,7 @@ const Root = ({appUpdatePending, doAppUpdate, message}) => {
     }, [location]);
 
     console.log("App loaded with environment:");
-    console.log(env);
+    console.log({env});
     console.log({appUpdatePending});
     console.log({message})
 
