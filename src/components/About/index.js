@@ -1,15 +1,24 @@
+import env from "config/env";
 import useAccessiblePageLoad from "hooks/useAccessiblePageLoad";
 import { useRef } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
     color: ${({theme}) => theme.text};
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     & p {
         margin: 0.5rem 0;
         text-align: justify;
     }
     & .centered {
         text-align: center;
+    }
+    & .app-version {
+        text-align: center;
+        font-style: italic;
+        margin-top: auto;
     }
 `
 
@@ -25,6 +34,8 @@ const About = () => {
             <p>The best way you can use this app is to review boundaries together before enacting a scene; it should <i>never</i> imply consent automatically, and of course parties are welcome to renegotiate a scene at any point.</p> 
             <p>Like any tool, use at your own discretion and of course...</p>
             <p className="centered">❤️ Play safe! ❤️</p>
+            <p className="app-version">v-{env.REACT_APP_VERSION}</p>
+            <p className="app-version">env-{env.DEPLOY_ENV}, {env.BRANCH}#{env.COMMIT}</p>
         </Container>
     )
 }
