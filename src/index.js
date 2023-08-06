@@ -5,6 +5,7 @@ import ThemeWrapper from 'components/ThemeWrapper';
 import { routeConfig } from 'routes';
 import GlobalStyles from 'config/GlobalStyles';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,3 +18,8 @@ root.render(
     </ModalProvider>
   </React.StrictMode>
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.register();
