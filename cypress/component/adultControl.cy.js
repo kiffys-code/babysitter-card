@@ -1,5 +1,5 @@
 import { ADULT_KEY, STORAGE_KEY } from 'config/storage';
-import { createAppAtRoute } from 'test-utils';
+import { createAppAtRoute } from './test-utils';
 
 
 describe('18+ Access', () => {

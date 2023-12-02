@@ -1,17 +1,18 @@
-import ThemeWrapper from 'components/ThemeWrapper';
-import GlobalStyles from 'config/GlobalStyles';
+import React from 'react';
 import { RouterProvider, createMemoryRouter } from 'react-router';
 import { routeConfig } from 'routes';
 import { ModalProvider } from 'styled-react-modal';
+import { ReduxProvider, ColorThemeProvider } from "../../src/providers";
 
 export const AppHarness = ({children}) => (
     <>
-        <GlobalStyles />
-        <ModalProvider>
-            <ThemeWrapper>
-                {children}
-            </ThemeWrapper>
-        </ModalProvider>
+        <ReduxProvider>
+            <ColorThemeProvider>
+                <ModalProvider>
+                    {children}
+                </ModalProvider>
+            </ColorThemeProvider>
+        </ReduxProvider>
     </>
 )
 

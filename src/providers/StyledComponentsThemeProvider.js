@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import React from "react";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -41,4 +42,11 @@ const GlobalStyles = createGlobalStyle`
 
 `;
 
-export default GlobalStyles;
+export const StyledComponentsThemeProvider = ({children, theme, ...props}) => {
+    return (
+        <ThemeProvider theme={theme} {...props}>
+            <GlobalStyles />
+            {children}
+        </ThemeProvider>
+    )
+}

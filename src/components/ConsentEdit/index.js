@@ -1,14 +1,13 @@
 import TextInput from "components/shared/input/TextInput";
 import ThemePicker from "components/ConsentEdit/ThemePicker";
-import { ThemeContext } from "config/context";
 import { useEffect } from "react";
-import { useContext } from "react";
 import styled from "styled-components";
 import ConsentListEdit from "./ConsentListEdit";
 import { Link } from "react-router-dom";
 import RoundedButton from "components/shared/RoundedButton";
 import Icon from "components/shared/Icon";
 import MenuContainer from "components/shared/MenuContainer";
+import { useColorTheme } from "providers/ColorThemeProvider";
 
 const Container = styled.div`
     height: 100%;
@@ -19,7 +18,7 @@ const Container = styled.div`
 const ConsentEdit = ({form}) => {
 
     const {control, register, watch, getValues} = form;
-    const {setThemeColor, themeColor} = useContext(ThemeContext);
+    const [themeColor, setThemeColor] = useColorTheme();
 
     const watchedThemeColor = watch('theme', themeColor);
 

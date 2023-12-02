@@ -1,5 +1,5 @@
 import { ADULT_KEY, STORAGE_KEY } from 'config/storage';
-import { createAppAtRoute } from 'test-utils';
+import { createAppAtRoute } from './test-utils';
 
 describe('GDPR', () => {
     it('the user can clear their device data, even when they have declined 18+', () => {

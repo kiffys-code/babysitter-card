@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom";
 import Legend from "components/Legend";
 import HamburgerMenu from "components/HamburgerMenu";
 import MenuContainer from "components/shared/MenuContainer";
+import { useCheckForUpdatesInterval } from "features/serviceworkers/useServiceWorkers";
+import { UpdateAvailableToast } from "components/UpdateAvailableToast";
 
 const App = styled.div`
     display: flex;
@@ -48,9 +50,12 @@ const StyledMenuContainer = styled(MenuContainer)`
 `
 
 const Root = () => {
+    
+    useCheckForUpdatesInterval(5000);
 
     return (
         <App id='app' >
+            <UpdateAvailableToast />
             <StyledMenuContainer>
                 <HamburgerMenu />
             </StyledMenuContainer>
